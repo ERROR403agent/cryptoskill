@@ -23,6 +23,7 @@
       name: 'Binance',
       icon: '🔶',
       github: 'https://github.com/binance/binance-skills-hub',
+      description: 'Official Binance exchange skills for spot, futures, and wallet operations.',
       matcher: (s) => s.author === 'binance' || s.name.startsWith('binance-official')
     },
     {
@@ -30,6 +31,7 @@
       name: 'OKX',
       icon: '⚫',
       github: 'https://github.com/okx/onchainos-skills',
+      description: 'OKX OnchainOS skills for trading, DeFi, and on-chain operations.',
       matcher: (s) => s.author === 'okx' || s.name.startsWith('okx-official')
     },
     {
@@ -37,6 +39,7 @@
       name: 'Gate.io',
       icon: '🔵',
       github: 'https://github.com/gateio',
+      description: 'Gate.io exchange integration for spot and futures trading.',
       matcher: (s) => s.author === 'gate' && s.name.startsWith('gate-')
     },
     {
@@ -44,6 +47,7 @@
       name: 'Nansen',
       icon: '📊',
       github: 'https://www.nansen.ai',
+      description: 'On-chain analytics and smart money tracking from Nansen.',
       matcher: (s) => s.author === 'nansen' && s.name.startsWith('nansen-')
     },
     {
@@ -51,6 +55,7 @@
       name: 'CoinMarketCap',
       icon: '📈',
       github: 'https://github.com/coinmarketcap',
+      description: 'Market data, rankings, and crypto metrics from CoinMarketCap.',
       matcher: (s) => s.author === 'cmc' && (s.name.startsWith('cmc-') || s.name.startsWith('coinmarketcap-'))
     },
     {
@@ -58,6 +63,7 @@
       name: 'Bitget',
       icon: '🟢',
       github: 'https://github.com/BitgetLimited/agent_hub',
+      description: 'Bitget exchange skills for copy trading and derivatives.',
       matcher: (s) => (s.author === 'bitget' || s.author === 'bitget-wallet-ai-lab') && s.name.startsWith('bitget-official')
     },
     {
@@ -65,6 +71,7 @@
       name: 'Lightning Labs',
       icon: '⚡',
       github: 'https://github.com/lightningnetwork',
+      description: 'Lightning Network payment channel and node management skills.',
       matcher: (s) => s.author === 'roasbeef' && s.name.startsWith('lightning-')
     },
     {
@@ -72,6 +79,7 @@
       name: 'OpenSea',
       icon: '🌊',
       github: 'https://github.com/ProjectOpenSea',
+      description: 'NFT marketplace operations including listing, bidding, and analytics.',
       matcher: (s) => s.author === 'opensea' && s.name.startsWith('opensea')
     },
     {
@@ -79,6 +87,7 @@
       name: 'SushiSwap',
       icon: '🍣',
       github: 'https://github.com/sushiswap',
+      description: 'Decentralized exchange and liquidity provision on SushiSwap.',
       matcher: (s) => s.author === 'sushi' && s.name.startsWith('sushiswap')
     },
     {
@@ -86,6 +95,7 @@
       name: 'Uniswap',
       icon: '🦄',
       github: 'https://github.com/Uniswap/uniswap-ai',
+      description: 'Uniswap DEX skills for swaps, liquidity, and pool management.',
       matcher: (s) => s.name.startsWith('uniswap-official')
     },
     {
@@ -93,6 +103,7 @@
       name: 'Solana Foundation',
       icon: '☀️',
       github: 'https://github.com/solana-foundation/solana-mcp-official',
+      description: 'Official Solana MCP server for on-chain interactions.',
       matcher: (s) => s.name === 'solana-mcp-official'
     },
     {
@@ -100,6 +111,7 @@
       name: 'BNB Chain',
       icon: '💛',
       github: 'https://github.com/bnb-chain/bnbchain-skills',
+      description: 'BNB Chain skills for BSC, opBNB, and Greenfield operations.',
       matcher: (s) => s.name.startsWith('bnb-official') || s.name === 'bnbchain-mcp'
     },
     {
@@ -107,6 +119,7 @@
       name: 'Aptos',
       icon: '🔷',
       github: 'https://github.com/aptos-labs/aptos-agent',
+      description: 'Aptos blockchain skills for Move contracts and transactions.',
       matcher: (s) => s.name.startsWith('aptos-official') || s.name === 'aptos-mcp'
     },
     {
@@ -114,6 +127,7 @@
       name: 'MCP Servers',
       icon: '🔌',
       github: 'https://github.com/jiayaoqijia/cryptoskill',
+      description: 'Community and third-party MCP server integrations.',
       matcher: (s) => s.category === 'mcp-servers' && !s.name.startsWith('bnb') && !s.name.startsWith('aptos') && !s.name.startsWith('solana')
     }
   ];
@@ -134,6 +148,29 @@
   const officialSkillsList = document.getElementById('officialSkillsList');
   const officialDetailTitle = document.getElementById('officialDetailTitle');
   const officialDetailClose = document.getElementById('officialDetailClose');
+
+  // --- Theme Toggle ---
+  function initTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
+
+    // Load saved preference (default is dark)
+    const savedTheme = localStorage.getItem('cryptoskill-theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('cryptoskill-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('cryptoskill-theme', 'light');
+      }
+    });
+  }
 
   // --- Load Skills Catalog ---
   async function loadSkills() {
@@ -188,14 +225,29 @@
   function updateStats() {
     const statSkills = document.getElementById('statSkills');
     const statCategories = document.getElementById('statCategories');
+    const statMCP = document.getElementById('statMCP');
     const statProtocols = document.getElementById('statProtocols');
+
     if (statSkills) statSkills.textContent = skills.length + '+';
     if (statCategories) statCategories.textContent = Object.keys(categories).length;
+
+    // Auto-calculate MCP server count
+    const mcpCount = skills.filter(s => s.category === 'mcp-servers').length;
+    if (statMCP) statMCP.textContent = mcpCount;
+
     const protocols = new Set();
     skills.forEach(s => {
       if (s.tags && s.tags.length > 0) protocols.add(s.tags[0]);
     });
     if (statProtocols) statProtocols.textContent = protocols.size + '+';
+
+    // Update official total count header
+    const officialTotalCount = document.getElementById('officialTotalCount');
+    if (officialTotalCount) {
+      const totalOfficialSkills = officialSkills.length;
+      const verifiedTeams = OFFICIAL_PROJECTS.filter(p => officialSkills.some(s => p.matcher(s))).length;
+      officialTotalCount.innerHTML = `<strong>${totalOfficialSkills}+</strong> official skills from <strong>${verifiedTeams}</strong> verified teams`;
+    }
   }
 
   // --- Render Official Projects ---
@@ -206,6 +258,12 @@
     OFFICIAL_PROJECTS.forEach(project => {
       const projectSkills = officialSkills.filter(s => project.matcher(s));
       if (projectSkills.length === 0) return;
+
+      // Get preview skill names (up to 4)
+      const previewSkills = projectSkills.slice(0, 4);
+      const previewHTML = previewSkills.map(s =>
+        `<span class="official-skill-preview-tag">${s.displayName}</span>`
+      ).join('');
 
       const card = document.createElement('div');
       card.className = 'official-project-card fade-in-up';
@@ -218,8 +276,14 @@
             <span class="official-badge">&#10003; Official</span>
           </div>
         </div>
+        <div class="official-project-desc">${project.description || ''}</div>
+        <div class="official-skill-previews">${previewHTML}</div>
         <div class="official-card-bottom">
           <span class="official-skill-count"><strong>${projectSkills.length}</strong> skills</span>
+          <button class="official-view-all-btn" onclick="event.stopPropagation()">
+            View all ${projectSkills.length} skills
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
           <a href="${project.github}" target="_blank" rel="noopener" class="official-github-link" onclick="event.stopPropagation()">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             GitHub
@@ -227,9 +291,18 @@
         </div>
       `;
 
+      // Click on the card or "View all" button opens the detail
       card.addEventListener('click', () => {
         toggleOfficialProject(project.id);
       });
+
+      const viewAllBtn = card.querySelector('.official-view-all-btn');
+      if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleOfficialProject(project.id);
+        });
+      }
 
       officialGrid.appendChild(card);
     });
@@ -615,7 +688,13 @@
     document.querySelectorAll('.install-panel').forEach(p => p.style.display = 'none');
     document.querySelectorAll('.install-tab').forEach(t => t.classList.remove('active'));
     const panel = document.getElementById('install-' + tab);
-    if (panel) panel.style.display = 'block';
+    if (panel) {
+      panel.style.display = 'block';
+      // Re-trigger animation
+      panel.style.animation = 'none';
+      panel.offsetHeight; // force reflow
+      panel.style.animation = '';
+    }
     if (btn) btn.classList.add('active');
   };
 
@@ -672,6 +751,7 @@
 
   // --- Init ---
   document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     loadSkills();
     observeElements();
   });

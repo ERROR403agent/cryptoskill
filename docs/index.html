@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CryptoSkill - The Crypto Skill Hub for AI Agents</title>
-  <meta name="description" content="Discover, install, and build AI agent skills and MCP servers for every crypto protocol, exchange, and tool. 350+ skills and 37 MCP servers across 13 categories.">
+  <meta name="description" content="Discover, install, and build AI agent skills and MCP servers for every crypto protocol, exchange, and tool. 409+ skills and 38 MCP servers across 13 categories.">
   <meta name="keywords" content="crypto, AI agents, skills, MCP, blockchain, DeFi, trading, exchanges">
 
   <!-- Open Graph -->
@@ -47,20 +47,41 @@
         <li><a href="https://github.com/jiayaoqijia/cryptoskill" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
 
-      <button class="nav-search-btn" aria-label="Search skills">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        Search skills...
-        <kbd>&#8984;K</kbd>
-      </button>
+      <div class="nav-right">
+        <button class="nav-search-btn" aria-label="Search skills">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Search skills...
+          <kbd>&#8984;K</kbd>
+        </button>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <!-- Sun icon (shown in dark mode) -->
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon icon (shown in light mode) -->
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -115,11 +136,11 @@
       </div>
       <div class="stats-bar">
         <div class="stat-item">
-          <div class="stat-value" id="statSkills">351+</div>
+          <div class="stat-value" id="statSkills">409+</div>
           <div class="stat-label">Skills</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">37</div>
+          <div class="stat-value" id="statMCP">38</div>
           <div class="stat-label">MCP Servers</div>
         </div>
         <div class="stat-item">
@@ -148,6 +169,7 @@
           </span>
         </div>
         <p class="section-desc">From verified project teams with official GitHub repos</p>
+        <p class="official-total-count" id="officialTotalCount"></p>
       </div>
       <div class="official-grid stagger" id="officialGrid">
         <!-- Populated by JS -->
@@ -216,7 +238,7 @@
         <div class="how-card fade-in-up">
           <div class="how-number">1</div>
           <div class="how-title">Browse</div>
-          <div class="how-desc">Explore 350+ crypto skills and 37 MCP servers across 13 categories. Search for protocols, exchanges, chains, or DeFi tools.</div>
+          <div class="how-desc">Explore 400+ crypto skills and 38 MCP servers across 13 categories. Search for protocols, exchanges, chains, or DeFi tools.</div>
         </div>
         <div class="how-card fade-in-up">
           <div class="how-number">2</div>
@@ -241,11 +263,19 @@
         <p class="section-desc">Install skills for Claude Code, OpenClaw, Codex, and more.</p>
       </div>
       <div class="install-box fade-in-up">
-        <div class="install-tabs" style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-          <button class="install-tab active" onclick="switchInstallTab('claude',this)">Claude Code</button>
-          <button class="install-tab" onclick="switchInstallTab('mcp',this)">MCP Servers</button>
-          <button class="install-tab" onclick="switchInstallTab('openclaw',this)">OpenClaw</button>
-          <button class="install-tab" onclick="switchInstallTab('manual',this)">Manual</button>
+        <div class="install-tabs">
+          <button class="install-tab active" onclick="switchInstallTab('claude',this)">
+            <span class="tab-icon">&#9672;</span> Claude Code
+          </button>
+          <button class="install-tab" onclick="switchInstallTab('mcp',this)">
+            <span class="tab-icon">&#128268;</span> MCP Servers
+          </button>
+          <button class="install-tab" onclick="switchInstallTab('openclaw',this)">
+            <span class="tab-icon">&#128038;</span> OpenClaw
+          </button>
+          <button class="install-tab" onclick="switchInstallTab('manual',this)">
+            <span class="tab-icon">&#128196;</span> Manual
+          </button>
         </div>
         <div id="install-claude" class="install-panel">
           <div class="install-cmd" style="margin-bottom:8px">
@@ -266,11 +296,12 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             </button>
           </div>
+          <div class="install-panel-note">Clones the registry and copies a skill into your project's <code>.claude/skills/</code> directory for Claude Code to use.</div>
         </div>
         <div id="install-mcp" class="install-panel" style="display:none">
           <div class="install-cmd" style="margin-bottom:8px">
             <span class="prompt">#</span>
-            <code style="color:var(--text-tertiary)">Add an MCP server to Claude Code</code>
+            <code style="color:var(--text-tertiary)">Add a hosted MCP server to Claude Code</code>
           </div>
           <div class="install-cmd" style="margin-bottom:8px">
             <span class="prompt">$</span>
@@ -281,7 +312,18 @@
           </div>
           <div class="install-cmd" style="margin-bottom:8px">
             <span class="prompt">#</span>
-            <code style="color:var(--text-tertiary)">Or install from GitHub and run locally</code>
+            <code style="color:var(--text-tertiary)">Or install from GitHub and run locally via npx</code>
+          </div>
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">$</span>
+            <code>npx @solana/mcp-server</code>
+            <button class="copy-btn" onclick="copyToClipboard('npx @solana/mcp-server', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">#</span>
+            <code style="color:var(--text-tertiary)">Or clone and build from source</code>
           </div>
           <div class="install-cmd" style="margin-bottom:8px">
             <span class="prompt">$</span>
@@ -297,6 +339,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             </button>
           </div>
+          <div class="install-panel-note">Use <code>claude mcp add</code> for hosted MCP servers, <code>npx</code> for npm packages, or clone from GitHub for full control.</div>
         </div>
         <div id="install-openclaw" class="install-panel" style="display:none">
           <div class="install-cmd" style="margin-bottom:8px">
@@ -317,6 +360,7 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             </button>
           </div>
+          <div class="install-panel-note">ClawHub CLI installs skills directly into your OpenClaw workspace with one command.</div>
         </div>
         <div id="install-manual" class="install-panel" style="display:none">
           <div class="install-cmd" style="margin-bottom:8px">
@@ -337,8 +381,97 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             </button>
           </div>
+          <div class="install-panel-note">Clone the full registry and manually copy any skill folder into your agent's skills directory.</div>
         </div>
         <p class="install-note">Compatible with Claude Code, OpenClaw, Codex, Cursor, and any SKILL.md-based agent</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submit Section -->
+  <section class="submit-section section" id="submit">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="section-label">Contribute</div>
+        <h2 class="section-title">Submit Your Skill</h2>
+        <p class="section-desc">Add your crypto skill or MCP server to the registry</p>
+      </div>
+      <div class="submit-grid fade-in-up">
+        <!-- GitHub PR Path -->
+        <div class="submit-card">
+          <div class="submit-card-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </div>
+          <h3>GitHub Pull Request</h3>
+          <p>Fork the repository, add your skill following the contribution guidelines, and open a pull request for review.</p>
+          <a href="https://github.com/jiayaoqijia/cryptoskill/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener" class="btn-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+              <path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+            Open a Pull Request
+          </a>
+        </div>
+
+        <!-- Quick Submit Form -->
+        <div class="submit-card">
+          <div class="submit-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="12" y1="18" x2="12" y2="12"/>
+              <line x1="9" y1="15" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <h3>Quick Submit</h3>
+          <form class="submit-form" onsubmit="return false;">
+            <div class="form-group">
+              <label for="submitName">Skill Name</label>
+              <input type="text" id="submitName" placeholder="e.g. my-defi-skill">
+            </div>
+            <div class="form-group">
+              <label for="submitURL">GitHub URL</label>
+              <input type="url" id="submitURL" placeholder="https://github.com/...">
+            </div>
+            <div class="form-group">
+              <label for="submitCategory">Category</label>
+              <select id="submitCategory">
+                <option value="">Select a category...</option>
+                <option value="exchanges">Exchanges</option>
+                <option value="defi">DeFi</option>
+                <option value="l1-l2">L1/L2 Chains</option>
+                <option value="analytics">Analytics</option>
+                <option value="nft-gaming">NFT &amp; Gaming</option>
+                <option value="wallets">Wallets</option>
+                <option value="data-feeds">Data Feeds</option>
+                <option value="mcp-servers">MCP Servers</option>
+                <option value="security">Security</option>
+                <option value="payments">Payments</option>
+                <option value="ai-crypto">AI &amp; Crypto</option>
+                <option value="social-governance">Social &amp; Governance</option>
+                <option value="dev-tools">Dev Tools</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="submitDesc">Description</label>
+              <textarea id="submitDesc" rows="2" placeholder="Brief description of what the skill does..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="submitEmail">Email (optional)</label>
+              <input type="email" id="submitEmail" placeholder="you@example.com">
+            </div>
+            <div class="submit-form-actions">
+              <button type="submit" class="btn-submit-outline" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Submit for Review
+              </button>
+            </div>
+            <p class="submit-form-note">Submissions are reviewed for security and quality before inclusion in the registry.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
