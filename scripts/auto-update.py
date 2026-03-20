@@ -29,11 +29,13 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SCRIPTS_DIR = REPO_ROOT / "scripts"
 SKILLS_DIR = REPO_ROOT / "skills"
 DOCS_DIR = REPO_ROOT / "docs"
 SKILLS_JSON = DOCS_DIR / "skills.json"
 INDEX_HTML = DOCS_DIR / "index.html"
 ENV_FILE = REPO_ROOT / ".env"
+WATCHLIST_FILE = SCRIPTS_DIR / "watchlist.json"
 
 LOOKBACK_DAYS = 7
 
@@ -544,6 +546,73 @@ def check_official_repos_for_updates(dry_run: bool = False) -> tuple[list[dict],
 
 
 # ---------------------------------------------------------------------------
+# Source 5: Watchlist scan — check "missing" projects for new repos
+# ---------------------------------------------------------------------------
+
+
+def scan_watchlist_for_new_repos() -> list[dict]:
+    """Scan watchlist.json for projects with status=missing/watch and check their GitHub orgs."""
+    if not WATCHLIST_FILE.exists():
+        log.warning("Watchlist not found at %s", WATCHLIST_FILE)
+        return []
+
+    watchlist = read_json(WATCHLIST_FILE)
+    discoveries = []
+    checked = 0
+
+    for category_key, projects in watchlist.items():
+        if category_key.startswith("_"):
+            continue
+        if not isinstance(projects, list):
+            continue
+
+        for project in projects:
+            status = project.get("status", "")
+            github_org = project.get("github")
+            name = project.get("name", "")
+
+            if status not in ("missing", "watch") or not github_org:
+                continue
+
+            checked += 1
+            # Search this org for MCP/skills repos
+            url = f"https://api.github.com/search/repositories?q=org:{github_org}+(mcp+OR+skill+OR+agent)&sort=updated&per_page=5"
+            data = github_api_get(url)
+            if not data or "items" not in data:
+                continue
+
+            for repo in data["items"]:
+                repo_name = repo.get("name", "")
+                description = repo.get("description", "") or ""
+                html_url = repo.get("html_url", "")
+                full_name = repo.get("full_name", "")
+
+                # Filter for crypto-relevant repos
+                blob = f"{repo_name} {description}".lower()
+                if not any(kw in blob for kw in ["mcp", "skill", "agent", "trading", "swap", "wallet", "blockchain"]):
+                    continue
+
+                slug = repo_name.lower().replace("_", "-")
+                skill_category = categorize_skill(slug, description)
+
+                discoveries.append({
+                    "name": slug,
+                    "displayName": f"{name} - {repo_name}",
+                    "description": description[:200],
+                    "category": skill_category,
+                    "source_url": html_url,
+                    "official": True,
+                    "source": "watchlist-scan",
+                    "author": github_org,
+                    "project": name,
+                })
+                log.info("  [WATCHLIST] %s: found %s (%s)", name, repo_name, html_url)
+
+    log.info("Scanned %d watchlist projects, found %d new repos", checked, len(discoveries))
+    return discoveries
+
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
@@ -1012,6 +1081,8 @@ def main() -> None:
                         help="Skip GitHub API search for new repos")
     parser.add_argument("--skip-official", action="store_true",
                         help="Skip official repo update check")
+    parser.add_argument("--skip-watchlist", action="store_true",
+                        help="Skip watchlist scan for missing projects")
     parser.add_argument("--skip-security", action="store_true",
                         help="Skip security checks (NOT recommended)")
     parser.add_argument("--no-ai-security", action="store_true",
@@ -1081,6 +1152,29 @@ def main() -> None:
                     "owner": d.get("author", "unknown"),
                     "official": d.get("official", False),
                     "source": "github-search",
+                })
+
+    # --- Source 5: Watchlist scan for missing projects ---
+    if not args.skip_watchlist:
+        log.info("=== Source 5: Watchlist Scan ===")
+        watchlist_discoveries = scan_watchlist_for_new_repos()
+        existing = existing_skill_names()
+        new_watchlist = [d for d in watchlist_discoveries if d["name"] not in existing]
+        for d in new_watchlist:
+            created = create_skill_from_discovery(d, dry_run=args.dry_run)
+            if created:
+                all_new_skills.append({
+                    "slug": d["name"],
+                    "name": d["name"],
+                    "displayName": d.get("displayName", d["name"]),
+                    "description": d["description"],
+                    "category": d.get("category", "dev-tools"),
+                    "tags": ["official", d.get("category", "dev-tools")],
+                    "author": d.get("author", "unknown"),
+                    "version": "1.0.0",
+                    "owner": d.get("author", "unknown"),
+                    "official": True,
+                    "source": "watchlist-scan",
                 })
 
     # --- Source 4: Check official repos for new/updated skills ---
