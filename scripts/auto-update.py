@@ -43,14 +43,33 @@ ALTLLM_BASE_URLS = [
 ]
 ALTLLM_MODEL = "altllm-standard"
 
-# Official GitHub repos to check for new skills (highest priority)
+# Official GitHub repos to check for new/updated skills (highest priority)
 OFFICIAL_REPOS = [
-    {"org": "binance", "repo": "binance-skills-hub", "category": "exchanges", "prefix": "binance-official-"},
-    {"org": "okx", "repo": "onchainos-skills", "category": "exchanges", "prefix": "okx-official-"},
-    {"org": "okx", "repo": "agent-skills", "category": "exchanges", "prefix": "okx-official-"},
-    {"org": "BitgetLimited", "repo": "agent_hub", "category": "exchanges", "prefix": "bitget-official-"},
+    {"org": "binance", "repo": "binance-skills-hub", "category": "exchanges", "prefix": "binance-official-", "skills_dir": "skills"},
+    {"org": "okx", "repo": "onchainos-skills", "category": "exchanges", "prefix": "okx-official-", "skills_dir": "skills"},
+    {"org": "okx", "repo": "agent-skills", "category": "exchanges", "prefix": "okx-official-", "skills_dir": "skills"},
+    {"org": "BitgetLimited", "repo": "agent_hub", "category": "exchanges", "prefix": "bitget-official-", "skills_dir": "skills"},
+    {"org": "Kucoin", "repo": "kucoin-skills-hub", "category": "exchanges", "prefix": "kucoin-official-", "skills_dir": "skills"},
+    {"org": "krakenfx", "repo": "kraken-cli", "category": "exchanges", "prefix": "kraken-official-", "skills_dir": "skills"},
+    {"org": "Uniswap", "repo": "uniswap-ai", "category": "defi", "prefix": "uniswap-official-", "skills_dir": "skills"},
+    {"org": "bnb-chain", "repo": "bnbchain-skills", "category": "chains", "prefix": "bnb-official-", "skills_dir": "skills"},
     {"org": "coinbase", "repo": "agentkit", "category": "mcp-servers", "prefix": "coinbase-"},
     {"org": "alchemyplatform", "repo": "alchemy-mcp-server", "category": "mcp-servers", "prefix": "alchemy-"},
+    {"org": "solana-foundation", "repo": "solana-mcp-official", "category": "mcp-servers", "prefix": "solana-"},
+    {"org": "base", "repo": "base-mcp", "category": "mcp-servers", "prefix": "base-"},
+    {"org": "monad-developers", "repo": "monad-mcp", "category": "mcp-servers", "prefix": "monad-"},
+    {"org": "aptos-labs", "repo": "aptos-npm-mcp", "category": "mcp-servers", "prefix": "aptos-"},
+    {"org": "blockscout", "repo": "mcp-server", "category": "mcp-servers", "prefix": "blockscout-"},
+    {"org": "nearai", "repo": "near-mcp", "category": "mcp-servers", "prefix": "near-"},
+    {"org": "coingecko", "repo": "coingecko-typescript", "category": "mcp-servers", "prefix": "coingecko-"},
+]
+
+# GitHub search queries to discover NEW official crypto skill/MCP repos
+GITHUB_SEARCH_QUERIES = [
+    "crypto MCP server official language:TypeScript pushed:>{cutoff}",
+    "blockchain skills agent official language:TypeScript pushed:>{cutoff}",
+    "crypto agent skills language:Python pushed:>{cutoff}",
+    "DeFi MCP server pushed:>{cutoff}",
 ]
 
 # Crypto keyword buckets for detection and categorisation
@@ -357,6 +376,171 @@ Output ONLY the JSON array, nothing else.""",
         log.warning("Failed to parse AltLLM discoveries: %s", e)
 
     return []
+
+
+# ---------------------------------------------------------------------------
+# Source 3: GitHub API Search (no API key needed for basic search)
+# ---------------------------------------------------------------------------
+
+
+def github_api_get(url: str) -> dict | list | None:
+    """Make a GET request to GitHub API (unauthenticated, 60 req/hr)."""
+    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github.v3+json", "User-Agent": "CryptoSkill-Bot"})
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except (urllib.error.URLError, urllib.error.HTTPError) as e:
+        log.warning("GitHub API failed for %s: %s", url, e)
+        return None
+
+
+def search_github_for_new_repos(lookback_days: int) -> list[dict]:
+    """Search GitHub for new crypto MCP/skill repos created recently."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=lookback_days)).strftime("%Y-%m-%d")
+    discoveries = []
+
+    for query_tpl in GITHUB_SEARCH_QUERIES:
+        query = query_tpl.replace("{cutoff}", cutoff)
+        url = f"https://api.github.com/search/repositories?q={urllib.request.quote(query)}&sort=updated&per_page=10"
+        data = github_api_get(url)
+        if not data or "items" not in data:
+            continue
+
+        for repo in data["items"]:
+            name = repo.get("name", "")
+            full_name = repo.get("full_name", "")
+            description = repo.get("description", "") or ""
+            html_url = repo.get("html_url", "")
+
+            # Skip if already known
+            slug = name.lower().replace("_", "-")
+            blob = f"{name} {description}".lower()
+            if not text_matches_keywords(blob, ALL_CRYPTO_KEYWORDS):
+                continue
+
+            category = categorize_skill(slug, description)
+            discoveries.append({
+                "name": slug,
+                "displayName": name.replace("-", " ").replace("_", " ").title(),
+                "description": description[:200],
+                "category": category,
+                "source_url": html_url,
+                "official": False,
+                "source": "github-search",
+                "author": full_name.split("/")[0] if "/" in full_name else "unknown",
+            })
+
+    # Deduplicate
+    seen = set()
+    unique = []
+    for d in discoveries:
+        if d["name"] not in seen:
+            seen.add(d["name"])
+            unique.append(d)
+
+    log.info("GitHub search found %d new repos", len(unique))
+    return unique
+
+
+# ---------------------------------------------------------------------------
+# Source 4: Check Official Repos for New/Updated Skills
+# ---------------------------------------------------------------------------
+
+
+def check_official_repos_for_updates(dry_run: bool = False) -> tuple[list[dict], int]:
+    """Clone official repos and check for new or updated skills.
+
+    Returns (new_skills, updated_count).
+    """
+    new_skills = []
+    updated = 0
+    existing = existing_skill_names()
+
+    for repo_info in OFFICIAL_REPOS:
+        org = repo_info["org"]
+        repo = repo_info["repo"]
+        category = repo_info["category"]
+        prefix = repo_info.get("prefix", "")
+        skills_dir_name = repo_info.get("skills_dir", "")
+
+        clone_dir = Path(f"/tmp/cs-official-{org}-{repo}")
+
+        # Clone or pull
+        if clone_dir.exists():
+            shutil.rmtree(clone_dir)
+
+        log.info("Checking %s/%s for updates...", org, repo)
+        result = subprocess.run(
+            ["git", "clone", "--depth", "1", f"https://github.com/{org}/{repo}.git", str(clone_dir)],
+            capture_output=True, timeout=30,
+        )
+        if result.returncode != 0:
+            log.warning("  Failed to clone %s/%s", org, repo)
+            continue
+
+        # Find skills directory
+        skills_path = clone_dir / skills_dir_name if skills_dir_name else clone_dir
+        if skills_dir_name and not skills_path.is_dir():
+            # Try root
+            skills_path = clone_dir
+
+        # Scan for SKILL.md files
+        for skill_md in skills_path.rglob("SKILL.md"):
+            skill_dir = skill_md.parent
+            skill_name = skill_dir.name
+            dest_name = f"{prefix}{skill_name}" if prefix and not skill_name.startswith(prefix) else skill_name
+
+            dest_path = SKILLS_DIR / category / dest_name
+
+            if dest_name in existing and dest_path.exists():
+                # Check if content changed
+                try:
+                    old_content = (dest_path / "SKILL.md").read_text(encoding="utf-8", errors="ignore")
+                    new_content = skill_md.read_text(encoding="utf-8", errors="ignore")
+                    if old_content.strip() != new_content.strip():
+                        if dry_run:
+                            log.info("  [DRY-RUN] Would update %s (content changed)", dest_name)
+                        else:
+                            # Update: copy new SKILL.md over
+                            shutil.copy2(skill_md, dest_path / "SKILL.md")
+                            # Copy any new reference files
+                            for ref in skill_dir.rglob("*"):
+                                if ref.is_file() and ref.name != "SOURCE.md":
+                                    rel = ref.relative_to(skill_dir)
+                                    target = dest_path / rel
+                                    target.parent.mkdir(parents=True, exist_ok=True)
+                                    shutil.copy2(ref, target)
+                            log.info("  Updated %s", dest_name)
+                        updated += 1
+                except OSError:
+                    pass
+                continue
+
+            if dest_name in existing:
+                continue
+
+            # New skill
+            fm = parse_skill_md_frontmatter(skill_md)
+            new_skills.append({
+                "slug": dest_name,
+                "name": fm.get("name", dest_name),
+                "displayName": fm.get("name", dest_name).replace("-", " ").title(),
+                "description": fm.get("description", f"Official skill from {org}"),
+                "category": category,
+                "tags": ["official", category],
+                "author": org,
+                "version": fm.get("version", "1.0.0"),
+                "owner": org,
+                "source_path": str(skill_dir),
+                "source": "official-repo",
+                "official": True,
+            })
+            log.info("  New official skill: %s -> %s", dest_name, category)
+
+        # Cleanup
+        shutil.rmtree(clone_dir, ignore_errors=True)
+
+    return new_skills, updated
 
 
 # ---------------------------------------------------------------------------
@@ -824,6 +1008,10 @@ def main() -> None:
                         help="Skip OpenClaw repo scan")
     parser.add_argument("--skip-web", action="store_true",
                         help="Skip AltLLM web/Twitter search")
+    parser.add_argument("--skip-github", action="store_true",
+                        help="Skip GitHub API search for new repos")
+    parser.add_argument("--skip-official", action="store_true",
+                        help="Skip official repo update check")
     parser.add_argument("--skip-security", action="store_true",
                         help="Skip security checks (NOT recommended)")
     parser.add_argument("--no-ai-security", action="store_true",
@@ -871,16 +1059,48 @@ def main() -> None:
                     "source": "altllm-web-search",
                 })
 
-    if not all_new_skills:
-        log.info("No new crypto skills found — nothing to do.")
+    # --- Source 3: GitHub API search for new repos ---
+    if not args.skip_github:
+        log.info("=== Source 3: GitHub API Search ===")
+        github_discoveries = search_github_for_new_repos(args.lookback_days)
+        existing = existing_skill_names()
+        new_github = [d for d in github_discoveries if d["name"] not in existing]
+        log.info("Found %d new repos from GitHub search", len(new_github))
+        for d in new_github:
+            created = create_skill_from_discovery(d, dry_run=args.dry_run)
+            if created:
+                all_new_skills.append({
+                    "slug": d["name"],
+                    "name": d["name"],
+                    "displayName": d.get("displayName", d["name"]),
+                    "description": d["description"],
+                    "category": d.get("category", "dev-tools"),
+                    "tags": [d.get("category", "dev-tools")],
+                    "author": d.get("author", "unknown"),
+                    "version": "1.0.0",
+                    "owner": d.get("author", "unknown"),
+                    "official": d.get("official", False),
+                    "source": "github-search",
+                })
+
+    # --- Source 4: Check official repos for new/updated skills ---
+    updated_count = 0
+    if not args.skip_official:
+        log.info("=== Source 4: Official Repo Updates ===")
+        official_new, updated_count = check_official_repos_for_updates(dry_run=args.dry_run)
+        log.info("Found %d new official skills, %d updated", len(official_new), updated_count)
+        all_new_skills.extend(official_new)
+
+    if not all_new_skills and updated_count == 0:
+        log.info("No new or updated crypto skills found — nothing to do.")
         return
 
-    log.info("Total candidates: %d skills", len(all_new_skills))
+    if all_new_skills:
+        log.info("Total new candidates: %d skills", len(all_new_skills))
 
     # --- Security checks ---
-    if not args.skip_security:
+    if all_new_skills and not args.skip_security:
         log.info("=== Security Scan ===")
-        # Official skills first (they pass faster)
         official = [s for s in all_new_skills if s.get("official")]
         community = [s for s in all_new_skills if not s.get("official")]
 
@@ -891,24 +1111,29 @@ def main() -> None:
         all_new_skills = safe_official + safe_community
         log.info("After security: %d skills approved", len(all_new_skills))
 
-    if not all_new_skills:
-        log.info("All candidates were blocked by security checks.")
-        return
-
-    # --- Copy OpenClaw skills ---
-    openclaw_to_copy = [s for s in all_new_skills if s.get("source") == "openclaw"]
-    copied = copy_skills(openclaw_to_copy, dry_run=args.dry_run)
+    # --- Copy skills with source paths ---
+    copyable = [s for s in all_new_skills if s.get("source_path")]
+    copied = copy_skills(copyable, dry_run=args.dry_run)
 
     # --- Update catalog ---
-    update_skills_json(all_new_skills, dry_run=args.dry_run)
+    if all_new_skills:
+        update_skills_json(all_new_skills, dry_run=args.dry_run)
     update_index_html(dry_run=args.dry_run)
 
     # --- Git commit & push ---
     if not args.dry_run:
-        total_added = len(all_new_skills)
-        git_commit_and_push(total_added, no_push=args.no_push)
+        total_changes = len(all_new_skills) + updated_count
+        if total_changes > 0:
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            parts = []
+            if all_new_skills:
+                parts.append(f"{len(all_new_skills)} new")
+            if updated_count:
+                parts.append(f"{updated_count} updated")
+            msg = f"Auto-update: {', '.join(parts)} crypto skills ({today})"
+            git_commit_and_push(total_changes, no_push=args.no_push)
 
-    log.info("Done! %d skill(s) added.", len(all_new_skills))
+    log.info("Done! %d new, %d updated.", len(all_new_skills), updated_count)
 
 
 if __name__ == "__main__":
