@@ -1059,6 +1059,28 @@
       "version": "2.3.5"
     },
     {
+      "name": "gmx-official-liquidity",
+      "displayName": "Gmx Official Liquidity",
+      "description": "Provide liquidity on GMX V2 — deposit into GM pools and GLV vaults, withdraw, shift between pools, and query pool data across Arbitrum, Avalanche, and Botanix.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "gmx-official-trading",
+      "displayName": "Gmx Official Trading",
+      "description": "Trade perpetuals and swap tokens on GMX V2 — a decentralized exchange with oracle-based pricing on Arbitrum, Avalanche, and Botanix. Supports market/limit/stop orders, leverage up to 100x, and programmable position management via TypeScript SDK or REST API.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "jupiter-prediction-market",
       "displayName": "Jupiter Prediction Market",
       "description": "Complete Node.js client for Jupiter Prediction Market API. Use when building AI agents for prediction market trading, portfolio management, or automated trading bots on Solana. Covers: (1) Querying events, markets, orders, positions, payouts, history, and social features, (2) Creating/managing trading positions, (3) Claiming payouts after market settlement, (4) Building autonomous agent workflows for market scanning, opportunity finding, portfolio monitoring, and risk management.",
@@ -3999,6 +4021,17 @@
       "name": "algorand-mcp",
       "displayName": "Algorand Mcp",
       "description": "Algorand MCP server enabling AI agents to interact with Algorand blockchain for transactions, assets, and smart contracts.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alpaca-mcp",
+      "displayName": "Alpaca Mcp",
+      "description": "Official Alpaca MCP server for trading stocks, ETFs, crypto, and options via natural language. Supports real-time market data, portfolio management, order execution, options Greeks, watchlists, and corporate actions through AI assistants like Claude, Cursor, and VS Code.",
       "category": "mcp-servers",
       "tags": [
         "mcp-servers"

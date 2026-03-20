@@ -16,7 +16,7 @@
     {"name": "Crypto.com", "github": "crypto-com", "coingecko": "crypto_com", "skills_repo": null, "status": "community-only"},
     {"name": "Gemini", "github": "gemini", "coingecko": "gemini", "skills_repo": null, "status": "missing"},
     {"name": "Upbit", "github": "upbit", "coingecko": "upbit", "skills_repo": null, "status": "missing"},
-    {"name": "Alpaca", "github": "alpacahq", "coingecko": null, "skills_repo": "alpacahq/alpaca-mcp-server", "status": "watch"}
+    {"name": "Alpaca", "github": "alpacahq", "coingecko": null, "skills_repo": "alpacahq/alpaca-mcp-server", "status": "added"}
   ],
   "dex": [
     {"name": "Uniswap", "github": "Uniswap", "coingecko": "uniswap", "skills_repo": "Uniswap/uniswap-ai", "status": "added"},
@@ -28,7 +28,7 @@
     {"name": "Raydium", "github": "raydium-io", "coingecko": "raydium", "skills_repo": null, "status": "community-only"},
     {"name": "Orca", "github": "orca-so", "coingecko": "orca", "skills_repo": null, "status": "missing"},
     {"name": "dYdX", "github": "dydxprotocol", "coingecko": "dydx-chain", "skills_repo": null, "status": "missing"},
-    {"name": "GMX", "github": "gmx-io", "coingecko": "gmx", "skills_repo": null, "status": "missing"},
+    {"name": "GMX", "github": "gmx-io", "coingecko": "gmx", "skills_repo": "gmx-io/gmx-ai", "status": "added"},
     {"name": "Hyperliquid", "github": "hyperliquid-dex", "coingecko": "hyperliquid", "skills_repo": null, "status": "community-only"},
     {"name": "Trader Joe", "github": "traderjoe-xyz", "coingecko": "joe", "skills_repo": null, "status": "missing"},
     {"name": "Camelot", "github": "CamelotLabs", "coingecko": "camelot-token", "skills_repo": null, "status": "missing"},
