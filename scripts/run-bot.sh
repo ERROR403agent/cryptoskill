@@ -14,6 +14,9 @@ python3 scripts/auto-update.py \
   --update-watchlist \
   >> "$LOG" 2>&1
 
+# Always regenerate catalog from disk to avoid duplicates
+python3 scripts/update-catalog.py >> "$LOG" 2>&1
+
 echo "=== Done: $(date -u) ===" >> "$LOG"
 echo "" >> "$LOG"
 
