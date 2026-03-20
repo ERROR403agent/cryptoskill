@@ -4,11 +4,11 @@
 
 **The Crypto Skill Hub for AI Agents**
 
-Discover, install, and build AI agent skills for every crypto protocol, exchange, and tool.
+Discover, install, and build AI agent skills and MCP servers for every crypto protocol, exchange, and tool.
 
-[![Skills](https://img.shields.io/badge/skills-409-6366f1)]() [![MCP Servers](https://img.shields.io/badge/MCP%20servers-38-f59e0b)]() [![Categories](https://img.shields.io/badge/categories-13-22d3ee)]() [![License](https://img.shields.io/badge/license-AGPL--3.0-green)]()
+[![Skills](https://img.shields.io/badge/skills-453-6366f1)]() [![MCP Servers](https://img.shields.io/badge/MCP%20servers-45-f59e0b)]() [![Official](https://img.shields.io/badge/official-221-22c55e)]() [![Categories](https://img.shields.io/badge/categories-13-22d3ee)]() [![License](https://img.shields.io/badge/license-AGPL--3.0-green)]()
 
-[Website](https://cryptoskill.app) · [Browse Skills](#skills-overview) · [MCP Servers](#mcp-servers) · [Submit a Skill](#submit-a-skill) · [Contributing](CONTRIBUTING.md)
+[Website](https://cryptoskill.org) · [Browse Skills](#skills-overview) · [MCP Servers](#mcp-servers) · [Submit a Skill](#submit-a-skill) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -16,204 +16,195 @@ Discover, install, and build AI agent skills for every crypto protocol, exchange
 
 ## What is CryptoSkill?
 
-CryptoSkill is a curated registry of AI agent skills and MCP servers for the crypto ecosystem. Each skill is a self-contained module that teaches an AI agent how to interact with a specific protocol, exchange, or tool -- from placing trades on Binance to monitoring DeFi positions on Aave.
+CryptoSkill is the largest curated registry of AI agent skills and MCP servers for the crypto ecosystem. Each skill is a self-contained module that teaches an AI agent how to interact with a specific protocol, exchange, or tool -- from placing trades on Binance to monitoring DeFi positions on Aave.
 
 Whether you're building an autonomous trading agent, a portfolio tracker, or a research assistant, CryptoSkill gives you production-ready building blocks so you don't have to start from scratch.
 
 ### Why CryptoSkill?
 
-- **409 skills** covering the full crypto stack -- exchanges, DeFi, wallets, analytics, and more
-- **38 MCP servers** for direct protocol integration with Claude, Cursor, and other AI tools
-- **Official skills** from verified project teams (Binance, OKX, Coinbase, Gate.io, Kraken, KuCoin, Uniswap, Nansen, and more)
-- **Plug and play** -- each skill follows a standard format compatible with [OpenClaw](https://github.com/nicholasgriffintn/openclaw) agents
-- **Always growing** -- new skills and MCP servers are added regularly as the ecosystem evolves
+- **453 skills** covering the full crypto stack -- exchanges, DeFi, wallets, analytics, and more
+- **45 MCP servers** for direct protocol integration with Claude, Cursor, and other AI tools
+- **221 official skills** from verified project teams (Binance, OKX, Kraken, KuCoin, Uniswap, Gate.io, Nansen, and more)
+- **Plug and play** -- works with Claude Code (`.claude/skills/`), OpenClaw (`clawhub install`), and any SKILL.md-based agent
+- **Auto-updated** -- bot scans 128+ projects every 6 hours for new skills and MCP servers
+- **Security scanned** -- all skills checked for malicious code before inclusion
 
 ## Skills Overview
 
 | Category | Skills | Highlights |
 |---|---|---|
-| **Exchanges** | 167 | Binance (official), OKX (official), Gate.io (official), Bitget (official), Kraken (official), KuCoin (official), Hyperliquid, Bybit, Coinbase, MEXC |
-| **Chains** | 41 | Ethereum, Solana, Bitcoin, Lightning Network, Arbitrum, Base, Sui, Polygon, Cosmos, Monad, TON |
-| **MCP Servers** | 38 | Coinbase AgentKit, Alchemy, Solana Agent Kit, GOAT, Tatum, deBridge, Kraken CLI, Jupiter, Helius, DeFi Llama |
-| **Analytics** | 34 | CoinMarketCap (official), CoinGecko, Nansen (official), DefiLlama, Dune, Etherscan, The Graph, Zapper, Zerion |
-| **DeFi** | 29 | Uniswap (official), Aave, SushiSwap, PancakeSwap, Raydium, OpenSea (official), Pump.fun, Jupiter |
-| **Trading** | 25 | Grid trading, copy trading, whale tracking, yield scanning, airdrop hunting, signals |
-| **Identity** | 14 | ERC-8004 on-chain agent identity, discovery, reputation, Pinata |
-| **Payments** | 13 | x402 protocol, agent marketplace, paywall kit, private search |
-| **Wallets** | 13 | MetaMask, Bitget Wallet (official), Cobo TSS, WalletConnect, MPC payments |
-| **Prediction Markets** | 12 | Polymarket trading, odds, data API, whale copying, sports edge |
-| **Dev Tools** | 11 | Alchemy (official MCP), Moralis, Foundry, Hardhat, Viem, Wagmi |
+| **Exchanges** | 172 | Binance (official), OKX (official), Kraken (official 50 skills), KuCoin (official), Gate.io (official), Bitget (official), Hyperliquid, Bybit, Coinbase, MEXC |
+| **DeFi** | 46 | Uniswap (official 8), GMX (official), Rocket Pool (official 7), Venus (official), Lido, Aave, SushiSwap, PancakeSwap, Raydium, OpenSea, Pump.fun |
+| **MCP Servers** | 45 | Alchemy, Solana, CoinGecko, EigenLayer, Blockscout, Alpaca, NEAR, deBridge, Kraken CLI, Jupiter, CCXT, Chainlink |
+| **Chains** | 41 | Ethereum, Solana, Bitcoin, Lightning Network, BNB Chain, Arbitrum, Base, Sui, Polygon, Cosmos, Monad, Aptos, TON |
+| **Analytics** | 36 | CoinMarketCap (official 7), CoinGecko, Nansen (official 10), DefiLlama, Dune, Etherscan, The Graph, Zapper, Zerion |
+| **Trading** | 25 | Grid trading, copy trading, whale tracking, yield scanning, airdrop hunting, DCA, signals |
+| **Identity** | 17 | ERC-8004, 8004scan, 8004scan-webhooks, self-agent-id, on-chain reputation |
+| **Payments** | 16 | x402 protocol, mpp, tempo, agent marketplace, paywall kit |
+| **Wallets** | 14 | MetaMask, Bitget Wallet (official), crypto-wallet, Cobo TSS, WalletConnect, MPC |
+| **Dev Tools** | 12 | CryptoSkill registry, Alchemy, Moralis, Foundry, Hardhat, Viem, Wagmi |
+| **Prediction Markets** | 12 | Polymarket API, trading bots, whale copying, sports edge, CLI trading |
+| **AI x Crypto** | 10 | Bittensor, Virtuals Protocol, ElizaOS, privacy-layer, venice-private-ai |
 | **Social** | 7 | Farcaster, Nostr, XMTP (official) |
-| **AI x Crypto** | 5 | Bittensor, Virtuals Protocol (official), ElizaOS |
 
 ## MCP Servers
 
-CryptoSkill maintains a collection of **38 MCP (Model Context Protocol) servers** for crypto -- the largest curated list focused on the crypto ecosystem. MCP servers provide direct tool integration with AI assistants like Claude, Cursor, and Codex.
+CryptoSkill maintains **45 MCP (Model Context Protocol) servers** for crypto -- the largest curated collection focused on the crypto ecosystem.
+
+### Official MCP Servers
+
+| MCP Server | Project | Install |
+|---|---|---|
+| [Alchemy](skills/mcp-servers/alchemy-mcp/) | Alchemy | `claude mcp add alchemy` |
+| [Alpaca](skills/mcp-servers/alpaca-mcp/) | Alpaca | `git clone alpacahq/alpaca-mcp-server` |
+| [Aptos](skills/mcp-servers/aptos-mcp/) | Aptos Labs | `git clone aptos-labs/aptos-npm-mcp` |
+| [Base](skills/mcp-servers/base-mcp/) | Coinbase | `git clone base/base-mcp` |
+| [Blockscout](skills/mcp-servers/blockscout-mcp/) | Blockscout | `claude mcp add blockscout https://mcp.blockscout.com/mcp` |
+| [BNB Chain](skills/mcp-servers/bnbchain-mcp/) | BNB Chain | `git clone bnb-chain/bnbchain-mcp` |
+| [Coinbase AgentKit](skills/mcp-servers/coinbase-agentkit/) | Coinbase | `npm create onchain-agent@latest` |
+| [CoinGecko](skills/mcp-servers/coingecko-mcp-official/) | CoinGecko | `npx @coingecko/coingecko-mcp` |
+| [DefiLlama](skills/mcp-servers/defillama-mcp/) | dcSpark | `git clone dcSpark/mcp-server-defillama` |
+| [DexPaprika](skills/mcp-servers/dexpaprika-mcp/) | CoinPaprika | `git clone coinpaprika/dexpaprika-mcp` |
+| [EigenLayer](skills/mcp-servers/eigenlayer-mcp/) | Layr-Labs | `claude mcp add --transport sse eigenlayer https://eigenlayer-mcp-server-sand.vercel.app/sse` |
+| [Kraken CLI](skills/mcp-servers/kraken-cli-mcp/) | Kraken | `git clone krakenfx/kraken-cli` |
+| [Monad](skills/mcp-servers/monad-mcp/) | Monad | `git clone monad-developers/monad-mcp` |
+| [NEAR](skills/mcp-servers/near-mcp/) | NEAR | `git clone nearai/near-mcp` |
+| [Solana](skills/mcp-servers/solana-mcp-official/) | Solana Foundation | `git clone solana-foundation/solana-mcp-official` |
+
+### Community MCP Servers
 
 | MCP Server | Description |
 |---|---|
-| [Alchemy MCP](skills/mcp-servers/alchemy-mcp/) | Multi-chain RPC, NFT, and token APIs |
-| [Algorand MCP](skills/mcp-servers/algorand-mcp/) | Algorand blockchain interaction |
-| [Alby NWC MCP](skills/mcp-servers/alby-nwc-mcp/) | Lightning Network wallet connect |
-| [Aptos MCP](skills/mcp-servers/aptos-mcp/) | Aptos blockchain tools |
-| [Base MCP](skills/mcp-servers/base-mcp/) | Base L2 chain integration |
-| [Bitcoin MCP](skills/mcp-servers/bitcoin-mcp/) | Bitcoin network tools |
-| [Blockscout MCP](skills/mcp-servers/blockscout-mcp/) | Block explorer API access |
-| [BNB Chain MCP](skills/mcp-servers/bnbchain-mcp/) | BNB Chain integration |
-| [CCXT MCP](skills/mcp-servers/ccxt-mcp/) | Unified exchange API (100+ exchanges) |
-| [Chainlink Feeds MCP](skills/mcp-servers/chainlink-feeds-mcp/) | Chainlink price feed data |
-| [Coinbase AgentKit](skills/mcp-servers/coinbase-agentkit/) | Coinbase wallet and trading |
-| [CoinGecko MCP](skills/mcp-servers/coingecko-mcp-official/) | Market data and token info |
-| [CoinStats MCP](skills/mcp-servers/coinstats-mcp/) | Portfolio and market tracking |
-| [deBridge MCP](skills/mcp-servers/debridge-mcp/) | Cross-chain bridging |
-| [DeFi Llama MCP](skills/mcp-servers/defillama-mcp/) | TVL and DeFi analytics |
-| [DexPaprika MCP](skills/mcp-servers/dexpaprika-mcp/) | DEX data aggregation |
-| [DEXScreener MCP](skills/mcp-servers/dexscreener-mcp/) | Real-time DEX pair tracking |
-| [Dune Analytics MCP](skills/mcp-servers/dune-analytics-mcp/) | On-chain analytics queries |
-| [EVM MCP](skills/mcp-servers/evm-mcp/) | Generic EVM chain tools |
-| [Funding Rates MCP](skills/mcp-servers/funding-rates-mcp/) | Perpetual funding rate data |
-| [GOAT Onchain](skills/mcp-servers/goat-onchain/) | Multi-chain transaction toolkit |
-| [Helius MCP](skills/mcp-servers/helius-mcp/) | Solana RPC and DAS API |
-| [Hive Crypto MCP](skills/mcp-servers/hive-crypto-mcp/) | Hive blockchain integration |
-| [Jupiter MCP](skills/mcp-servers/jupiter-mcp/) | Solana swap aggregation |
-| [Kraken CLI MCP](skills/mcp-servers/kraken-cli-mcp/) | Kraken exchange CLI tools |
-| [LI.FI MCP](skills/mcp-servers/lifi-mcp/) | Cross-chain swap and bridge aggregator |
-| [Lightning MCP](skills/mcp-servers/lightning-mcp/) | Lightning Network payments |
-| [Monad MCP](skills/mcp-servers/monad-mcp/) | Monad blockchain tools |
-| [NEAR MCP](skills/mcp-servers/near-mcp/) | NEAR protocol integration |
-| [Nodit MCP](skills/mcp-servers/nodit-mcp/) | Multi-chain node infrastructure |
+| [Alby NWC](skills/mcp-servers/alby-nwc-mcp/) | Lightning Network wallet connect |
+| [Bitcoin](skills/mcp-servers/bitcoin-mcp/) | Bitcoin blockchain tools |
+| [CCXT](skills/mcp-servers/ccxt-mcp/) | Unified exchange API (100+ exchanges) |
+| [Chainlink Feeds](skills/mcp-servers/chainlink-feeds-mcp/) | Oracle price feed data |
+| [CoinStats](skills/mcp-servers/coinstats-mcp/) | Portfolio and market tracking |
+| [deBridge](skills/mcp-servers/debridge-mcp/) | Cross-chain bridging |
+| [DEXScreener](skills/mcp-servers/dexscreener-mcp/) | Real-time DEX pair tracking |
+| [Dune Analytics](skills/mcp-servers/dune-analytics-mcp/) | On-chain analytics queries |
+| [EVM](skills/mcp-servers/evm-mcp/) | Universal EVM chain tools (30+ chains) |
+| [Funding Rates](skills/mcp-servers/funding-rates-mcp/) | Perpetual funding rate data |
+| [GOAT Onchain](skills/mcp-servers/goat-onchain/) | 200+ on-chain actions |
+| [Helius](skills/mcp-servers/helius-mcp/) | Solana RPC and DAS API |
+| [Hive Intelligence](skills/mcp-servers/hive-crypto-mcp/) | Crypto + macro analytics |
+| [Jupiter](skills/mcp-servers/jupiter-mcp/) | Solana swap aggregation |
+| [Lightning](skills/mcp-servers/lightning-mcp/) | Lightning Network payments |
+| [Nodit](skills/mcp-servers/nodit-mcp/) | Multi-chain node infrastructure |
 | [Solana Agent Kit](skills/mcp-servers/solana-agent-kit/) | Full Solana agent toolkit |
-| [Solana Dev MCP](skills/mcp-servers/solana-dev-mcp/) | Solana developer tools |
-| [Solana MCP](skills/mcp-servers/solana-mcp-official/) | Official Solana MCP server |
-| [StarkNet MCP](skills/mcp-servers/starknet-mcp/) | StarkNet L2 integration |
-| [Tatum Blockchain MCP](skills/mcp-servers/tatum-blockchain-mcp/) | Multi-chain API platform |
+| [StarkNet](skills/mcp-servers/starknet-mcp/) | StarkNet L2 integration |
+| [Tatum](skills/mcp-servers/tatum-blockchain-mcp/) | Multi-chain API (130+ networks) |
 | [The Graph Token API](skills/mcp-servers/thegraph-token-api/) | Subgraph token data |
-| [Web3 MCP](skills/mcp-servers/web3-mcp/) | General Web3 integration tools |
-| [Whale Tracker MCP](skills/mcp-servers/whale-tracker-mcp/) | Large transaction monitoring |
+| [Web3 MCP](skills/mcp-servers/web3-mcp/) | Multi-chain Web3 tools |
+| [Whale Tracker](skills/mcp-servers/whale-tracker-mcp/) | Large transaction monitoring |
 
 > **Looking for an MCP server that's not listed?** [Submit it!](#submit-a-skill)
 
 ## Quick Start
 
-### Browse Skills
+### Install the CryptoSkill Skill
 
-Visit [cryptoskill.app](https://cryptoskill.app) to search and browse all skills with filtering by category, protocol, and use case.
-
-### Install a Skill
-
-Each skill is a directory containing a `SKILL.md` (documentation and frontmatter) and `_meta.json` (metadata). To use a skill with an OpenClaw-compatible agent:
+Give your AI agent access to the full registry:
 
 ```bash
-# Clone the repository
-git clone https://github.com/jiayaoqijia/cryptoskill.git
-cd cryptoskill
-
-# Copy a skill into your agent's workspace
-cp -r skills/exchanges/binance-spot-api ~/my-agent/workspace/skills/
+git clone https://github.com/jiayaoqijia/cryptoskill.git /tmp/cs
+cp -r /tmp/cs/skills/dev-tools/cryptoskill .claude/skills/
 ```
 
-### Skill Format
-
-Every skill follows a standard structure:
-
-```
-skills/{category}/{skill-name}/
-  SKILL.md        # Frontmatter + documentation
-  _meta.json      # Version history and ownership
-  SOURCE.md       # Attribution and provenance
-  index.js        # Optional: executable entry point
-  skill.yaml      # Optional: additional configuration
-  scripts/        # Optional: executable scripts
-  references/     # Optional: reference documentation
-```
-
-The `SKILL.md` frontmatter includes the skill name, description, version, author, tags, triggers, and configuration requirements.
-
-### Use with an AI Agent
-
-Skills are designed to work with [OpenClaw](https://github.com/nicholasgriffintn/openclaw)-compatible agents. The agent reads the `SKILL.md` to understand what the skill does, when to invoke it, and how to use it.
+### Install a Skill (Claude Code)
 
 ```bash
-# Example: configure an agent with exchange skills
-cp -r skills/exchanges/binance-spot-api ~/my-agent/workspace/skills/
-cp -r skills/exchanges/hyperliquid ~/my-agent/workspace/skills/
-cp -r skills/analytics/coingecko-price ~/my-agent/workspace/skills/
-
-# Start your agent -- it will auto-discover the skills
-my-agent start
+# Copy a skill into your project's Claude Code skills
+cp -r /tmp/cs/skills/exchanges/binance-spot-api .claude/skills/
+cp -r /tmp/cs/skills/defi/uniswap-official-swap-integration .claude/skills/
 ```
 
-## Source Attribution
+### Install an MCP Server
 
-All skills in this repository are sourced from the [ClawHub](https://clawhub.ai) community registry and are published under the **MIT-0** license (no attribution required). Each skill includes a `SOURCE.md` file documenting its original author and source.
+```bash
+# Add a hosted MCP server
+claude mcp add blockscout https://mcp.blockscout.com/mcp
 
-We gratefully acknowledge the work of both official project teams and community contributors who created these skills.
+# Or install from npm
+npx @coingecko/coingecko-mcp
 
-### Official Skills
+# Or clone and run locally
+git clone https://github.com/solana-foundation/solana-mcp-official.git
+cd solana-mcp-official && npm install && npm start
+```
 
-Skills from verified project teams with official GitHub repos:
+### Install via ClawHub CLI (OpenClaw)
+
+```bash
+npm i -g clawhub
+clawhub install binance-spot-api
+```
+
+## Official Skills
+
+**221 skills** from verified project teams with official GitHub repos:
 
 | Project | Skills | Source |
 |---|---|---|
-| [Kraken](https://www.kraken.com/) | 50 | Official skill suite |
-| [Binance](https://www.binance.com/) | 20 | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) |
-| [OKX](https://www.okx.com/) | 16 | [okx/onchainos-skills](https://github.com/okx/onchainos-skills), [okx/agent-skills](https://github.com/okx/agent-skills) |
+| [Kraken](https://www.kraken.com/) | 50 | [krakenfx/kraken-cli](https://github.com/krakenfx/kraken-cli) |
+| [Binance](https://www.binance.com/) | 20+ | [binance/binance-skills-hub](https://github.com/binance/binance-skills-hub) |
+| [OKX](https://www.okx.com/) | 16+ | [okx/onchainos-skills](https://github.com/okx/onchainos-skills) |
 | [Gate.io](https://www.gate.io/) | 13 | ClawHub: gate-exchange |
 | [Nansen](https://www.nansen.ai/) | 10 | ClawHub: nansen-devops |
-| [Uniswap](https://uniswap.org/) | 8 | Official skill suite |
+| [Uniswap](https://uniswap.org/) | 8 | [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) |
 | [CoinMarketCap](https://coinmarketcap.com/) | 7 | ClawHub: bryan-cmc |
 | [Bitget](https://www.bitget.com/) | 7 | [BitgetLimited/agent_hub](https://github.com/BitgetLimited/agent_hub) |
-| [KuCoin](https://www.kucoin.com/) | 7 | Official skill suite |
+| [KuCoin](https://www.kucoin.com/) | 7 | [Kucoin/kucoin-skills-hub](https://github.com/Kucoin/kucoin-skills-hub) |
+| [Rocket Pool](https://rocketpool.net/) | 7 | [rocket-pool/skills](https://github.com/rocket-pool/skills) |
+| [Ottie](https://github.com/jiayaoqijia/ottie) | 18 | Crypto DeFi, wallets, market data, mpp, tempo |
 | [Lightning Labs](https://lightning.engineering/) | 3 | ClawHub: roasbeef (CTO) |
+| [GMX](https://gmx.io/) | 2 | [gmx-io/gmx-ai](https://github.com/gmx-io/gmx-ai) |
 | [OpenSea](https://opensea.io/) | 2 | ClawHub: dfinzer (CEO) |
 | [SushiSwap](https://www.sushi.com/) | 2 | ClawHub: 0xmasayoshi (CTO) |
-| [Coinbase](https://www.coinbase.com/) | 1 | [coinbase/agentkit](https://github.com/coinbase/agentkit) |
-| [Alchemy](https://www.alchemy.com/) | 1 | [alchemyplatform/alchemy-mcp-server](https://github.com/alchemyplatform/alchemy-mcp-server) |
-| + more | -- | Virtuals, XMTP, ElizaOS, deBridge, GOAT, Tatum, etc. |
-
-### Community Skills
-
-Community-contributed skills from prolific contributors including jolestar, ivangdavila, mosonchan2023, squirt11e, and many others. Each skill's `SOURCE.md` credits the original author.
+| [Venus Protocol](https://venus.io/) | 1 | [VenusProtocol/venus-agent-skills](https://github.com/VenusProtocol/venus-agent-skills) |
+| + MCP servers | 45 | Alchemy, Coinbase, Solana, EigenLayer, Blockscout, Alpaca, NEAR, Base, Monad, CoinGecko, and more |
 
 ## Submit a Skill
 
-We welcome contributions from the community. Whether you have built a new skill or discovered an MCP server that should be listed, we want to hear from you.
+We welcome contributions from the community. Submit via:
 
-### How to Submit
+1. **GitHub PR** -- Fork, add your skill, open a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md)
+2. **Quick Submit** -- Email maintainers@altresear.ch with the skill name, GitHub URL, category, and description
+3. **Website** -- Use the submit form at [cryptoskill.org](https://cryptoskill.org)
 
-1. **Fork** this repository
-2. **Add your skill** following the [skill format](#skill-format) and guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)
-3. **Open a pull request** with a clear description of your submission
-4. **Wait for review** -- all submissions are reviewed for security and quality before merging
+All submissions are reviewed for security and quality before merging.
 
-### What We Are Looking For
+## Auto-Update Bot
 
-- Skills for protocols, exchanges, or tools not yet covered
-- MCP servers for crypto-related APIs and blockchains
-- Improvements to existing skills (better docs, more triggers, bug fixes)
-- Official skills from project teams (reach out to get the "official" badge)
+CryptoSkill runs an automated bot every 6 hours that:
 
-### Submission Quality Standards
+1. Scans 128+ project GitHub orgs for new skills and MCP servers
+2. Checks 17 official repos for updates (SHA-tracked, only clones changed repos)
+3. Searches GitHub API for trending crypto MCP repos
+4. Security scans all new skills (static analysis + AI review)
+5. Copies new skills, updates existing ones, regenerates the catalog
+6. Commits and pushes changes automatically
 
-- Clear, accurate documentation in `SKILL.md`
-- No hardcoded credentials or API keys
-- Proper attribution in `SOURCE.md`
-- Correct categorization and `kebab-case` naming
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full submission guide, including MCP server submission steps and security review requirements.
+See [scripts/auto-update.py](scripts/auto-update.py) and [scripts/watchlist.json](scripts/watchlist.json).
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for our development plans, including planned features like a CLI installer, search API, community rating system, and more.
+See [ROADMAP.md](ROADMAP.md) for development plans including a CLI installer, search API, community ratings, and more.
+
+## Legal
+
+- [Terms of Service](https://cryptoskill.org/terms.html)
+- [Privacy Policy](https://cryptoskill.org/privacy.html)
 
 ## License
 
 This project is licensed under **AGPL-3.0** -- see [LICENSE](LICENSE) for details.
 
-Individual skills retain their original **MIT-0** license as published on ClawHub. See [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES) for full attribution.
+Individual skills retain their original licenses (mostly **MIT-0**). See [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES).
 
 ## Acknowledgments
 
-- [ClawHub](https://clawhub.ai) -- The skill registry where all skills originate
-- [OpenClaw](https://github.com/nicholasgriffintn/openclaw) -- The agent framework powering skills
-- All original skill authors -- see `SOURCE.md` in each skill directory for individual credits
+- [ClawHub](https://clawhub.ai) -- Skill registry where community skills originate
+- [OpenClaw](https://github.com/nicholasgriffintn/openclaw) -- Agent framework powering skills
+- [Ottie](https://github.com/jiayaoqijia/ottie) -- Self-evolving crypto AI agent
+- All original skill authors -- see `SOURCE.md` in each skill directory
