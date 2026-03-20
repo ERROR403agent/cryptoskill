@@ -38,3 +38,10 @@ Each skill follows the ClawHub/OpenClaw format:
 
 - Static site in `docs/` — pure HTML/CSS/JS, no build step
 - Deploy via GitHub Pages from `docs/` directory
+- Run tests: `npx playwright test`
+
+## Commit Rules
+
+- **Never add AI tools as co-author on commits** — no `Co-Authored-By` lines for AI
+- Commit messages: concise, action-oriented (e.g., "Add binance official skills")
+- Group related changes into single commits
