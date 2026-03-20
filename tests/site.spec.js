@@ -41,7 +41,7 @@ test.describe('CryptoSkill Homepage', () => {
   test('official project cards render with correct data', async ({ page }) => {
     const cards = page.locator('.official-project-card');
     const count = await cards.count();
-    expect(count).toBeGreaterThanOrEqual(8);
+    expect(count).toBeGreaterThanOrEqual(9);
 
     // Check Binance card exists
     const binanceCard = page.locator('.official-project-card[data-project="binance"]');
@@ -219,9 +219,9 @@ test.describe('Skill Modal', () => {
     await page.locator('#skillsGrid .skill-card').first().click();
     await expect(page.locator('#modalOverlay')).toHaveClass(/active/);
 
-    const installCmd = page.locator('.modal .install-cmd code');
+    const installCmd = page.locator('.modal .install-cmd code').first();
     const cmdText = await installCmd.textContent();
-    expect(cmdText).toContain('cp -r cryptoskill/skills/');
+    expect(cmdText).toContain('.claude/skills/');
   });
 
   test('modal closes on overlay click', async ({ page }) => {
@@ -241,11 +241,17 @@ test.describe('Skill Modal', () => {
 });
 
 test.describe('Install Section', () => {
-  test('shows real git clone command', async ({ page }) => {
+  test('shows install tabs with correct commands', async ({ page }) => {
     await page.goto('/');
-    const installCode = page.locator('#install .install-cmd code').first();
-    await expect(installCode).toContainText('git clone');
-    await expect(installCode).toContainText('jiayaoqijia/cryptoskill');
+    // Claude tab is active by default
+    const claudePanel = page.locator('#install-claude');
+    await expect(claudePanel).toBeVisible();
+    await expect(claudePanel.locator('code').nth(1)).toContainText('git clone');
+    // Switch to OpenClaw tab
+    await page.locator('.install-tab', { hasText: /OpenClaw/ }).click();
+    const openclawPanel = page.locator('#install-openclaw');
+    await expect(openclawPanel).toBeVisible();
+    await expect(openclawPanel.locator('code').last()).toContainText('clawhub install');
   });
 });
 

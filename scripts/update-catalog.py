@@ -166,7 +166,30 @@ def build_catalog() -> dict:
 
             skills_list.append(entry)
 
-    return {"skills": skills_list}
+    # Preserve existing categories and merge with existing skill data
+    catalog = {"skills": skills_list, "categories": {}}
+    if SKILLS_JSON.exists():
+        try:
+            existing = read_json_safe(SKILLS_JSON)
+            # Keep curated categories
+            catalog["categories"] = existing.get("categories", {})
+            # Merge author/tags from existing entries where our parse found "unknown"
+            existing_by_name = {s["name"]: s for s in existing.get("skills", [])}
+            for entry in catalog["skills"]:
+                old = existing_by_name.get(entry["name"])
+                if old:
+                    if entry["author"] == "unknown" and old.get("author", "unknown") != "unknown":
+                        entry["author"] = old["author"]
+                    if entry["tags"] == [entry["category"]] and old.get("tags"):
+                        entry["tags"] = old["tags"]
+                    if entry["description"] == entry["displayName"] and old.get("description"):
+                        entry["description"] = old["description"]
+                    if entry["displayName"] == make_display_name(entry["name"]) and old.get("displayName"):
+                        entry["displayName"] = old["displayName"]
+        except Exception:
+            pass
+
+    return catalog
 
 
 def main() -> None:

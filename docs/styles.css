@@ -1097,6 +1097,36 @@ a {
   color: var(--text-tertiary);
 }
 
+.install-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.install-tab {
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-stack);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.install-tab:hover {
+  border-color: var(--card-border-hover);
+  color: var(--text-primary);
+}
+
+.install-tab.active {
+  background: var(--accent);
+  border-color: transparent;
+  color: white;
+}
+
 /* ============================================
    Skill Modal
    ============================================ */

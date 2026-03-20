@@ -233,31 +233,76 @@
     <div class="container">
       <div class="section-header fade-in-up">
         <div class="section-label">Get Started</div>
-        <h2 class="section-title">Get started in seconds</h2>
-        <p class="section-desc">Clone the repo and copy any skill into your agent's workspace.</p>
+        <h2 class="section-title">Works with every agent</h2>
+        <p class="section-desc">Install skills for Claude Code, OpenClaw, Codex, and more.</p>
       </div>
       <div class="install-box fade-in-up">
-        <div class="install-cmd" style="margin-bottom:12px">
-          <span class="prompt">$</span>
-          <code>git clone https://github.com/jiayaoqijia/cryptoskill.git</code>
-          <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/jiayaoqijia/cryptoskill.git', this)" title="Copy to clipboard">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-          </button>
+        <div class="install-tabs" style="display:flex;gap:8px;margin-bottom:16px">
+          <button class="install-tab active" onclick="switchInstallTab('claude',this)">Claude Code</button>
+          <button class="install-tab" onclick="switchInstallTab('openclaw',this)">OpenClaw</button>
+          <button class="install-tab" onclick="switchInstallTab('manual',this)">Manual</button>
         </div>
-        <div class="install-cmd">
-          <span class="prompt">$</span>
-          <code>cp -r cryptoskill/skills/exchanges/binance-spot-api ~/agent/skills/</code>
-          <button class="copy-btn" onclick="copyToClipboard('cp -r cryptoskill/skills/exchanges/binance-spot-api ~/agent/skills/', this)" title="Copy to clipboard">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-          </button>
+        <div id="install-claude" class="install-panel">
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">#</span>
+            <code style="color:var(--text-tertiary)">Add to your project's Claude Code skills</code>
+          </div>
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">$</span>
+            <code>git clone https://github.com/jiayaoqijia/cryptoskill.git /tmp/cs</code>
+            <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/jiayaoqijia/cryptoskill.git /tmp/cs', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="install-cmd">
+            <span class="prompt">$</span>
+            <code>cp -r /tmp/cs/skills/exchanges/binance-spot-api .claude/skills/</code>
+            <button class="copy-btn" onclick="copyToClipboard('cp -r /tmp/cs/skills/exchanges/binance-spot-api .claude/skills/', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
         </div>
-        <p class="install-note">Works with OpenClaw, Claude Code, and any MCP-compatible agent</p>
+        <div id="install-openclaw" class="install-panel" style="display:none">
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">#</span>
+            <code style="color:var(--text-tertiary)">Install via ClawHub CLI</code>
+          </div>
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">$</span>
+            <code>npm i -g clawhub</code>
+            <button class="copy-btn" onclick="copyToClipboard('npm i -g clawhub', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="install-cmd">
+            <span class="prompt">$</span>
+            <code>clawhub install binance-spot-api</code>
+            <button class="copy-btn" onclick="copyToClipboard('clawhub install binance-spot-api', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="install-manual" class="install-panel" style="display:none">
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">#</span>
+            <code style="color:var(--text-tertiary)">Copy to any agent's workspace skills directory</code>
+          </div>
+          <div class="install-cmd" style="margin-bottom:8px">
+            <span class="prompt">$</span>
+            <code>git clone https://github.com/jiayaoqijia/cryptoskill.git</code>
+            <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/jiayaoqijia/cryptoskill.git', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="install-cmd">
+            <span class="prompt">$</span>
+            <code>cp -r cryptoskill/skills/exchanges/binance-spot-api ~/workspace/skills/</code>
+            <button class="copy-btn" onclick="copyToClipboard('cp -r cryptoskill/skills/exchanges/binance-spot-api ~/workspace/skills/', this)" title="Copy">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="install-note">Compatible with Claude Code, OpenClaw, Codex, Cursor, and any SKILL.md-based agent</p>
       </div>
     </div>
   </section>

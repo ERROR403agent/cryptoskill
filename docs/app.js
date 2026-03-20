@@ -82,11 +82,39 @@
       matcher: (s) => s.author === 'sushi' && s.name.startsWith('sushiswap')
     },
     {
+      id: 'uniswap',
+      name: 'Uniswap',
+      icon: '🦄',
+      github: 'https://github.com/Uniswap/uniswap-ai',
+      matcher: (s) => s.name.startsWith('uniswap-official')
+    },
+    {
+      id: 'solana',
+      name: 'Solana Foundation',
+      icon: '☀️',
+      github: 'https://github.com/solana-foundation/solana-mcp-official',
+      matcher: (s) => s.name === 'solana-mcp-official'
+    },
+    {
+      id: 'bnbchain',
+      name: 'BNB Chain',
+      icon: '💛',
+      github: 'https://github.com/bnb-chain/bnbchain-skills',
+      matcher: (s) => s.name.startsWith('bnb-official') || s.name === 'bnbchain-mcp'
+    },
+    {
+      id: 'aptos',
+      name: 'Aptos',
+      icon: '🔷',
+      github: 'https://github.com/aptos-labs/aptos-agent',
+      matcher: (s) => s.name.startsWith('aptos-official') || s.name === 'aptos-mcp'
+    },
+    {
       id: 'mcp-servers',
       name: 'MCP Servers',
       icon: '🔌',
       github: 'https://github.com/jiayaoqijia/cryptoskill',
-      matcher: (s) => s.tags.includes('official') && s.category === 'mcp-servers'
+      matcher: (s) => s.category === 'mcp-servers' && !s.name.startsWith('bnb') && !s.name.startsWith('aptos') && !s.name.startsWith('solana')
     }
   ];
 
@@ -412,10 +440,20 @@
       </div>
       <div class="modal-section-title">Install</div>
       <div class="modal-install">
+        <div class="install-cmd" style="margin-bottom:6px">
+          <span class="prompt" style="color:var(--accent)">Claude</span>
+          <code>cp -r cryptoskill/skills/${skill.category}/${skill.name} .claude/skills/</code>
+          <button class="copy-btn" onclick="copyToClipboard('cp -r cryptoskill/skills/${skill.category}/${skill.name} .claude/skills/', this)" title="Copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
         <div class="install-cmd">
-          <span class="prompt">$</span>
-          <code>cp -r cryptoskill/skills/${skill.category}/${skill.name} ~/agent/skills/</code>
-          <button class="copy-btn" onclick="copyToClipboard('cp -r cryptoskill/skills/${skill.category}/${skill.name} ~/agent/skills/', this)" title="Copy">
+          <span class="prompt" style="color:var(--success)">Claw</span>
+          <code>clawhub install ${skill.name}</code>
+          <button class="copy-btn" onclick="copyToClipboard('clawhub install ${skill.name}', this)" title="Copy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
@@ -548,6 +586,15 @@
       });
     });
   }
+
+  // --- Install Tab Switching ---
+  window.switchInstallTab = function (tab, btn) {
+    document.querySelectorAll('.install-panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.install-tab').forEach(t => t.classList.remove('active'));
+    const panel = document.getElementById('install-' + tab);
+    if (panel) panel.style.display = 'block';
+    if (btn) btn.classList.add('active');
+  };
 
   // --- Copy to Clipboard ---
   window.copyToClipboard = function (text, btn) {
