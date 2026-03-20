@@ -3342,6 +3342,17 @@
       "version": "1.0.6"
     },
     {
+      "name": "alby-nwc-mcp",
+      "displayName": "Alby Nwc Mcp",
+      "description": "Official Alby Nostr Wallet Connect MCP server for Lightning Network payments, invoices, and balance management.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "alchemy-mcp",
       "displayName": "Alchemy MCP",
       "description": "MCP server enabling AI agents to interact with Alchemy's blockchain APIs for token prices, NFT data, transaction history, balances, asset transfers, and onchain transactions.",
@@ -3355,6 +3366,17 @@
         "tokens"
       ],
       "author": "alchemy",
+      "version": "1.0.0"
+    },
+    {
+      "name": "algorand-mcp",
+      "displayName": "Algorand Mcp",
+      "description": "Algorand MCP server enabling AI agents to interact with Algorand blockchain for transactions, assets, and smart contracts.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
@@ -3380,6 +3402,17 @@
       "version": "1.0.0"
     },
     {
+      "name": "bitcoin-mcp",
+      "displayName": "Bitcoin Mcp",
+      "description": "Bitcoin blockchain MCP server for querying blocks, transactions, addresses, and mempool data.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "blockscout-mcp",
       "displayName": "Blockscout Mcp",
       "description": "Official Blockscout MCP server wrapping Blockscout APIs for multi-chain blockchain data access. Provides balances, tokens, NFTs, contract metadata, transaction analysis, and smart contract inspection for AI agents.",
@@ -3394,6 +3427,28 @@
       "name": "bnbchain-mcp",
       "displayName": "Bnbchain Mcp",
       "description": "BNB Chain MCP server for interacting with BNB Chain and EVM-compatible networks through AI. Provides tools for blocks, transactions, contracts, tokens, NFTs, wallet, ERC-8004 agents, and Greenfield.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ccxt-mcp",
+      "displayName": "Ccxt Mcp",
+      "description": "Multi-exchange crypto market data MCP via CCXT library, supporting Binance, Kraken, KuCoin, Bybit, and 100+ exchanges.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "chainlink-feeds-mcp",
+      "displayName": "Chainlink Feeds Mcp",
+      "description": "Chainlink price feeds MCP server for real-time access to decentralized on-chain oracle price data.",
       "category": "mcp-servers",
       "tags": [
         "mcp-servers"
@@ -3460,6 +3515,72 @@
       "version": "1.0.0"
     },
     {
+      "name": "defillama-mcp",
+      "displayName": "Defillama Mcp",
+      "description": "DefiLlama MCP server for querying TVL, yields, stablecoin data, and protocol analytics across all DeFi.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dexpaprika-mcp",
+      "displayName": "Dexpaprika Mcp",
+      "description": "Official DexPaprika MCP server providing real-time DEX data on 5M+ tokens across 20+ blockchain networks.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dexscreener-mcp",
+      "displayName": "Dexscreener Mcp",
+      "description": "DexScreener MCP server for real-time DEX pair data, charts, and token analytics across all chains.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dune-analytics-mcp",
+      "displayName": "Dune Analytics Mcp",
+      "description": "Dune Analytics MCP server for executing queries and retrieving on-chain analytics dashboards.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "evm-mcp",
+      "displayName": "Evm Mcp",
+      "description": "Universal EVM MCP server supporting 30+ EVM-compatible chains including Ethereum, Polygon, BSC, and Arbitrum.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "funding-rates-mcp",
+      "displayName": "Funding Rates Mcp",
+      "description": "Real-time funding rate data MCP across Binance, OKX, Bybit, and other major crypto exchanges.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "goat-onchain",
       "displayName": "GOAT Onchain",
       "description": "The largest agentic finance toolkit for AI agents with 200+ tools for payments, DeFi, NFTs, prediction markets, and crypto asset management across multiple chains.",
@@ -3473,6 +3594,39 @@
         "multi-chain"
       ],
       "author": "goat-sdk",
+      "version": "1.0.0"
+    },
+    {
+      "name": "helius-mcp",
+      "displayName": "Helius Mcp",
+      "description": "Helius MCP server for Solana RPC, DAS API, webhooks, and enhanced transaction data.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "hive-crypto-mcp",
+      "displayName": "Hive Crypto Mcp",
+      "description": "Hive Intelligence MCP providing unified access to crypto, DeFi, Web3 analytics, equities, forex, and macro data.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "jupiter-mcp",
+      "displayName": "Jupiter Mcp",
+      "description": "Jupiter DEX aggregator MCP for optimal Solana token swaps with route finding and price impact analysis.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
@@ -3492,9 +3646,45 @@
       "version": "1.0.0"
     },
     {
+      "name": "lightning-mcp",
+      "displayName": "Lightning MCP Server",
+      "description": "Lightning Network MCP server for LN node management, invoices, channels, and payment routing.",
+      "category": "mcp-servers",
+      "tags": [
+        "lightning",
+        "bitcoin",
+        "mcp",
+        "payments"
+      ],
+      "author": "roasbeef",
+      "version": "1.0.0"
+    },
+    {
       "name": "monad-mcp",
       "displayName": "Monad Mcp",
       "description": "Monad MCP server built on Next.js. Provides blockchain tools for interacting with the Monad network, including ABI guessing, contract analysis, and EVM interactions.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "near-mcp",
+      "displayName": "Near Mcp",
+      "description": "Official NEAR Protocol MCP server for AI agents to interact with NEAR blockchain, accounts, contracts, and tokens.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "nodit-mcp",
+      "displayName": "Nodit Mcp",
+      "description": "Official Nodit Labs MCP server for multi-chain blockchain data access with enterprise-grade reliability.",
       "category": "mcp-servers",
       "tags": [
         "mcp-servers"
@@ -3519,9 +3709,31 @@
       "version": "1.0.0"
     },
     {
+      "name": "solana-dev-mcp",
+      "displayName": "Solana Dev Mcp",
+      "description": "Official Solana Foundation developer MCP demo for Solana ecosystem documentation and developer tooling.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "solana-mcp-official",
       "displayName": "Solana Mcp Official",
       "description": "Official Solana Developer MCP server. Serves up-to-date documentation across the Solana ecosystem to vibe coders and AI agents via mcp.solana.com.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "starknet-mcp",
+      "displayName": "Starknet Mcp",
+      "description": "Starknet MCP server for interacting with Starknet L2, deploying Cairo contracts, and querying state.",
       "category": "mcp-servers",
       "tags": [
         "mcp-servers"
@@ -3570,6 +3782,17 @@
         "ethereum"
       ],
       "author": "strangelove",
+      "version": "1.0.0"
+    },
+    {
+      "name": "whale-tracker-mcp",
+      "displayName": "Whale Tracker Mcp",
+      "description": "Crypto whale tracker MCP for monitoring large wallet movements and whale transaction alerts.",
+      "category": "mcp-servers",
+      "tags": [
+        "mcp-servers"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
