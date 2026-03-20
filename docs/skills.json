@@ -44,6 +44,28 @@
       "version": "1.1.0"
     },
     {
+      "name": "privacy-layer",
+      "displayName": "Privacy Layer",
+      "description": "Privacy-preserving operations for crypto agents. Covers ZK-SNARK private transfers via Railgun Protocol, shielded balances, network egress monitoring, and confidential transaction patterns. Use when asked about private transfers, shielded transactions, or agent privacy.",
+      "category": "ai-crypto",
+      "tags": [
+        "ai-crypto"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "venice-private-ai",
+      "displayName": "Venice Private Ai",
+      "description": "Use Venice AI for private, no-data-retention LLM inference. OpenAI-compatible API with privacy guarantees — no prompts, completions, or user data stored. Use when asked about private AI inference, confidential reasoning, Venice API, or zero-retention LLM providers.",
+      "category": "ai-crypto",
+      "tags": [
+        "ai-crypto"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "virtuals",
       "displayName": "Virtuals",
       "description": "Virtuals Protocol integration for OpenClaw. Create, manage and trade tokenized AI agents on Base.",
@@ -195,6 +217,28 @@
         "trending"
       ],
       "author": "jolestar",
+      "version": "1.0.0"
+    },
+    {
+      "name": "crypto-market-data",
+      "displayName": "Crypto Market Data",
+      "description": "Get cryptocurrency prices, market cap, trading volume, trending tokens, market sentiment, Fear & Greed Index, total value locked (TVL), and DeFi protocol rankings. Use when asked about token price, crypto market overview, what's trending, market sentiment, TVL by chain or protocol, top gainers/losers, or price history.",
+      "category": "analytics",
+      "tags": [
+        "analytics"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "crypto-research",
+      "displayName": "Crypto Research",
+      "description": "Research cryptocurrency tokens, verify smart contracts, check perpetual futures data, governance proposals, and on-chain analytics. Use when asked about token research, contract verification, is this token safe, rug pull check, Hyperliquid perps, funding rates, governance vote, Dune analytics, token due diligence, or security audit status.",
+      "category": "analytics",
+      "tags": [
+        "analytics"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
@@ -1045,6 +1089,50 @@
       "version": "1.0.0"
     },
     {
+      "name": "defi-lending",
+      "displayName": "Defi Lending",
+      "description": "Check DeFi lending and borrowing rates, supply/borrow APY, positions, health factors, and protocol comparisons. Use when asked about lending rates, borrowing costs, Aave rates, Compound APY, Morpho markets, lending protocol comparison, health factor, or liquidation risk.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "defi-staking",
+      "displayName": "Defi Staking",
+      "description": "Check liquid staking APR, exchange rates, withdrawal queues, and staking rewards for ETH and other tokens. Use when asked about staking ETH, Lido stETH, Rocket Pool rETH, staking APR, liquid staking rates, staking rewards, unstaking queue, or staking comparison.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "defi-swap",
+      "displayName": "Defi Swap",
+      "description": "Get DEX swap quotes, price routes, and trade execution data across multiple chains. Use when asked about swapping tokens, best swap price, DEX aggregator quotes, token swap routes, trading on Uniswap/Jupiter/ParaSwap/1inch, slippage, or comparing swap rates across DEXes.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "defi-yield",
+      "displayName": "Defi Yield",
+      "description": "Find yield farming opportunities, compare APY across DeFi protocols, analyze yield strategies, and check risk metrics. Use when asked about best yields, yield farming, APY comparison, Pendle fixed yield, Curve pools, liquidity mining rewards, yield strategy, or where to earn the highest return on crypto.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "dex-aggregator",
       "displayName": "DEX Aggregator",
       "description": "Compare token prices across decentralized exchanges — find best rates, lowest slippage, and optimal swap routes using DexScreener and 1inch APIs. Use when you need dex aggregator capabilities. Triggers on: dex aggregator.",
@@ -1093,6 +1181,28 @@
       ],
       "author": "moltbotteam",
       "version": "0.1.0"
+    },
+    {
+      "name": "lido-mcp",
+      "displayName": "Lido Mcp",
+      "description": "Build and use an MCP server for Lido staking operations. Covers stETH staking, wstETH wrapping, withdrawal queue, balance queries, governance, and vault monitoring. Use when building Lido MCP tools, staking integrations, or monitoring Lido positions.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "lido-vault-monitor",
+      "displayName": "Lido Vault Monitor",
+      "description": "Monitor Lido Earn vault positions (EarnETH, EarnUSD) and staking positions. Track yield against benchmarks, detect allocation shifts, alert on health changes. Use when asked about Lido vault monitoring, yield tracking, stETH position alerts, or DeFi position management.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
     },
     {
       "name": "liquidity-monitor",
@@ -1333,6 +1443,17 @@
       ],
       "author": "prqelt",
       "version": "0.1.0"
+    },
+    {
+      "name": "steth-treasury",
+      "displayName": "Steth Treasury",
+      "description": "Build and interact with stETH Agent Treasury contracts. Yield-bearing operating budgets backed by wstETH where agents spend only yield, never touching principal. Use when asked about agent treasury, yield-funded budgets, stETH yield spending, or principal-protected vaults.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
     },
     {
       "name": "sushiswap-api",
@@ -2398,6 +2519,17 @@
         "rest"
       ],
       "author": "jolestar",
+      "version": "1.0.0"
+    },
+    {
+      "name": "crypto-cex",
+      "displayName": "Crypto Cex",
+      "description": "Get centralized exchange market data, order books, trading pairs, ticker prices, and 24h volume across Binance, Coinbase, Kraken, Bybit, Gate.io, and Bitget. Use when asked about CEX prices, exchange order book, trading pairs, CEX volume, Binance price, Kraken ticker, exchange comparison, or funding rates on centralized exchanges.",
+      "category": "exchanges",
+      "tags": [
+        "exchanges"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
@@ -3947,6 +4079,28 @@
       "version": "1.0.0"
     },
     {
+      "name": "8004scan",
+      "displayName": "8004scan",
+      "description": "Query the 8004scan public API to discover, search, and analyze ERC-8004 AI agents registered on the blockchain. Covers agent listing, semantic search, agent details, account lookups, platform statistics, supported chains, and feedback queries. Consult this skill when the user wants to search for agents, browse the agent registry, check agent details on 8004scan, get platform stats, look up agents by owner address, query feedback scores, or integrate with the 8004scan API programmatically.",
+      "category": "identity",
+      "tags": [
+        "identity"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "8004scan-webhooks",
+      "displayName": "8004scan Webhooks",
+      "description": "Register and manage 8004scan webhooks for real-time event notifications — agent registrations, feedback submissions, validation responses, and star events. Covers webhook CRUD, event types, HMAC-SHA256 signature verification, delivery monitoring, and retry behavior. Consult this skill when the user wants to receive real-time notifications from 8004scan, set up webhooks, verify webhook signatures, or monitor webhook deliveries.",
+      "category": "identity",
+      "tags": [
+        "identity"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "base-8004",
       "displayName": "Base 8004",
       "description": "Register your AI agent onchain with ERC-8004 on Base. Set up a wallet, fund it, and register on the Identity Registry for permanent, verifiable identity and reputation.",
@@ -4077,6 +4231,17 @@
       ],
       "author": "iammatthias",
       "version": "1.0.6"
+    },
+    {
+      "name": "self-agent-id",
+      "displayName": "Self Agent Id",
+      "description": "Integrate Self Protocol Agent ID for ZK-powered, human-backed AI agent identity. Covers registration, verification, soulbound NFTs, Sybil resistance, and A2A patterns. Use when asked about agent identity, proof-of-human, Self Protocol, or ZK identity.",
+      "category": "identity",
+      "tags": [
+        "identity"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
     },
     {
       "name": "alby-nwc-mcp",
@@ -4604,6 +4769,28 @@
       ],
       "author": "gane5h",
       "version": "3.0.5"
+    },
+    {
+      "name": "mpp",
+      "displayName": "Mpp",
+      "description": "Machine Payments Protocol (MPP) for agent-to-service payments. Pay for APIs, LLM inference, image generation, and web search via HTTP 402. Use when asked about machine payments, paying for API calls, MPP protocol, Tempo wallet, or agent commerce.",
+      "category": "payments",
+      "tags": [
+        "payments"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "tempo",
+      "displayName": "Tempo",
+      "description": "Use this skill when the user wants to call an API, make an HTTP request, discover available services, or access external data with automatic payments. Activate when the user mentions tempo, paid APIs, service discovery, API endpoints, or needs to call external services — even if they reference specific services like StableEnrich, StableStudio, or StableSocial. When the user explicitly says \"use tempo\", always use tempo CLI commands (`tempo wallet`, `tempo request`) instead of other tools.",
+      "category": "payments",
+      "tags": [
+        "payments"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
     },
     {
       "name": "x402",
@@ -5373,6 +5560,17 @@
       ],
       "author": "dinstein",
       "version": "0.2.0"
+    },
+    {
+      "name": "crypto-wallet",
+      "displayName": "Crypto Wallet",
+      "description": "Check cryptocurrency wallet balances, token holdings, transaction history, token approvals, ENS name resolution, and on-chain activity. Use when asked about wallet balance, what tokens an address holds, transaction history, pending transactions, token allowances, ENS lookup, or address portfolio.",
+      "category": "wallets",
+      "tags": [
+        "wallets"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
     },
     {
       "name": "metamask",
