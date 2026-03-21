@@ -2,9 +2,9 @@
 
 # CryptoSkill
 
-**The Crypto Skill Hub for AI Agents**
+**The App Store Moment for Crypto AI Agents**
 
-Discover, install, and build AI agent skills and MCP servers for every crypto protocol, exchange, and tool.
+Before the App Store, iPhone developers distributed apps through ad hoc channels. Before npm, JavaScript developers emailed zip files. Every platform ecosystem goes through the same phase transition: fragmented distribution, then a registry, then an explosion of building. Crypto AI agents are at the registry moment.
 
 [![Skills](https://img.shields.io/badge/skills-477-6366f1)]() [![MCP Servers](https://img.shields.io/badge/MCP%20servers-56-f59e0b)]() [![Official](https://img.shields.io/badge/official-221-22c55e)]() [![Categories](https://img.shields.io/badge/categories-13-22d3ee)]() [![License](https://img.shields.io/badge/license-AGPL--3.0-green)]()
 
@@ -17,20 +17,20 @@ Discover, install, and build AI agent skills and MCP servers for every crypto pr
 
 ---
 
-## What is CryptoSkill?
+## Why CryptoSkill Exists
 
-CryptoSkill is the largest curated registry of AI agent skills and MCP servers for the crypto ecosystem. Each skill is a self-contained module that teaches an AI agent how to interact with a specific protocol, exchange, or tool -- from placing trades on Binance to monitoring DeFi positions on Aave.
+The MCP ecosystem crossed **97 million monthly SDK downloads**. Over 5,800 MCP servers exist. But a developer building a crypto AI agent today has to hunt through Binance's repo, Kraken's repo, Uniswap's repo, and 50 others just to assemble a working skill set. Different formats. No security review. No way to tell official from unofficial. In a typical organization, **38% of deployed MCP servers come from unknown authors** (Clutch Security).
 
-Whether you're building an autonomous trading agent, a portfolio tracker, or a research assistant, CryptoSkill gives you production-ready building blocks so you don't have to start from scratch.
+The general-purpose skill registries (SkillsMP with 500K+ skills, SkillHub with 7K+) are too broad. They list crypto alongside cooking recipes and email templates. Crypto needs its own vertical registry for the same reason iOS and Android have separate app stores: the security model, the domain expertise, and the user expectations are fundamentally different.
 
-### Why CryptoSkill?
+CryptoSkill is the crypto-native answer:
 
-- **477 skills** covering the full crypto stack -- exchanges, DeFi, wallets, analytics, and more
-- **56 MCP servers** for direct protocol integration with Claude, Cursor, and other AI tools
-- **221 official skills** from verified project teams (Binance, OKX, Kraken, KuCoin, Uniswap, Gate.io, Nansen, and more)
-- **Plug and play** -- works with Claude Code (`.claude/skills/`), OpenClaw (`clawhub install`), and any SKILL.md-based agent
-- **Auto-updated** -- bot scans 128+ projects every 6 hours for new skills and MCP servers
-- **Security scanned** -- all skills checked for malicious code before inclusion
+- **477 skills** covering the full crypto stack -- exchanges, DeFi, wallets, analytics, trading, identity, payments
+- **56 MCP servers** for direct protocol integration with Claude, Cursor, Codex, and other AI tools
+- **221 official skills** from verified project teams (Kraken, Binance, OKX, Uniswap, Gate.io, Nansen, and more)
+- **Security-scanned** -- every skill checked for hardcoded credentials, RCE, exfiltration, and prompt injection
+- **Auto-updated** -- bot scans 128+ projects every 6 hours for new skills and changes
+- **Open standard** -- SKILL.md + _meta.json + SOURCE.md, works with Claude Code, OpenClaw, and any SKILL.md agent
 
 ## Skills Overview
 
@@ -177,22 +177,24 @@ We welcome contributions from the community. Submit via:
 
 All submissions are reviewed for security and quality before merging.
 
-## Auto-Update Bot
+## Why Not General Registries?
 
-CryptoSkill runs an automated bot every 6 hours that:
+| Challenge | General Registry | CryptoSkill |
+|---|---|---|
+| **Private key handling** | No awareness. Skills may leak keys. | Scans for hardcoded keys, mnemonics, credential patterns |
+| **Exchange provenance** | Mixes official and unofficial wrappers | 221 verified from project teams. Official vs community clearly labeled. |
+| **Chain-specific tooling** | No chain filtering | 41 chain-specific skills, filterable by network |
+| **DeFi protocol risk** | No protocol-level security context | Dependency scanning, RCE detection, prompt injection checks |
+| **MCP server trust** | 38% from unknown authors | Every server has SOURCE.md with provenance chain |
+| **Update freshness** | Manual submission, often outdated | 6-hour bot cycle scanning 128+ projects |
 
-1. Scans 128+ project GitHub orgs for new skills and MCP servers
-2. Checks 17 official repos for updates (SHA-tracked, only clones changed repos)
-3. Searches GitHub API for trending crypto MCP repos
-4. Security scans all new skills (static analysis + AI review)
-5. Copies new skills, updates existing ones, regenerates the catalog
-6. Commits and pushes changes automatically
+## Auto-Update
 
-See [scripts/auto-update.py](scripts/auto-update.py) and [scripts/watchlist.json](scripts/watchlist.json).
+CryptoSkill is not a static directory. A bot scans 128+ projects every 6 hours across four channels -- official GitHub repos (SHA-tracked), GitHub trending search, AI-powered discovery, and ClawHub community skills. Every new skill is security-scanned before inclusion. See [scripts/auto-update.py](scripts/auto-update.py) for details.
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for development plans including a CLI installer, search API, community ratings, and more.
+See [ROADMAP.md](ROADMAP.md) for development plans including a CLI installer, search API, community ratings, and bounty program.
 
 ## Legal
 
@@ -205,9 +207,21 @@ This project is licensed under **AGPL-3.0** -- see [LICENSE](LICENSE) for detail
 
 Individual skills retain their original licenses (mostly **MIT-0**). See [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES).
 
+## The Crypto AI Agent Stack
+
+CryptoSkill is one layer in a broader stack. Agents need skills to be useful, identity to be trusted, and payments to be monetized.
+
+| Layer | Project | Role |
+|---|---|---|
+| **Agents** | [Ottie](https://github.com/jiayaoqijia/ottie), Claude Code, OpenClaw, Codex | Execute tasks using skills |
+| **Skills** | **CryptoSkill** | Discover, install, and verify crypto-specific skills |
+| **Identity** | [ERC-8004](https://github.com/jiayaoqijia/8004), 8004scan | On-chain agent identity and reputation |
+| **Payments** | [x402](https://github.com/coinbase/x402), USDC | Agent-to-agent micropayments |
+
 ## Acknowledgments
 
 - [ClawHub](https://clawhub.ai) -- Skill registry where community skills originate
 - [OpenClaw](https://github.com/nicholasgriffintn/openclaw) -- Agent framework powering skills
 - [Ottie](https://github.com/jiayaoqijia/ottie) -- Self-evolving crypto AI agent
+- [ERC-8004](https://github.com/jiayaoqijia/8004) -- On-chain agent identity standard
 - All original skill authors -- see `SOURCE.md` in each skill directory
