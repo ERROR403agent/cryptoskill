@@ -5805,6 +5805,39 @@
       "version": "1.0.0"
     },
     {
+      "name": "polyhub-account",
+      "displayName": "Polyhub Account",
+      "description": "View portfolio stats on Polyhub using an API key.",
+      "category": "trading",
+      "tags": [
+        "trading"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "polyhub-copy",
+      "displayName": "Polyhub Copy",
+      "description": "Manage copy-trading tasks, view signals, positions and trades on Polyhub using an API key.",
+      "category": "trading",
+      "tags": [
+        "trading"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "polyhub-discover",
+      "displayName": "Polyhub Discover",
+      "description": "Explore public discover data on Polyhub without API key auth, including tags, trader rankings, trader detail stats, and market tag lookup.",
+      "category": "trading",
+      "tags": [
+        "trading"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "portfolio-trader",
       "displayName": "Portfolio Trader",
       "description": "Connect to a user's investment accounts via SnapTrade SDK and generate portfolio reports (e.g., daily total value). Use when the user wants SnapTrade-based brokerage connectivity (Webull, E*TRADE, etc.), connection portal links, account registration, or automated portfolio summaries.",
