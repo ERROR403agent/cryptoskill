@@ -13,8 +13,25 @@ python3 scripts/auto-update.py \
   --update-watchlist \
   >> "$LOG" 2>&1
 
-# Always regenerate catalog from disk to avoid duplicates
+# Regenerate catalog from disk to avoid duplicates
 python3 scripts/update-catalog.py >> "$LOG" 2>&1
+
+# Update website HTML stats to match current counts
+TOTAL=$(find skills -mindepth 2 -maxdepth 2 -type d | wc -l)
+MCP=$(find skills/mcp-servers -mindepth 1 -maxdepth 1 -type d | wc -l)
+CATS=$(ls -d skills/*/ | wc -l)
+sed -i "s/statSkills\">[0-9]*/statSkills\">$TOTAL/" docs/index.html
+sed -i "s/statMCP\">[0-9]*/statMCP\">$MCP/" docs/index.html
+sed -i "s/[0-9]\+\+ crypto skills/$TOTAL+ crypto skills/" docs/index.html
+sed -i "s/[0-9]\+ MCP servers/$MCP MCP servers/" docs/index.html
+echo "Updated website: $TOTAL skills, $MCP MCPs, $CATS categories" >> "$LOG"
+
+# Commit website changes if any
+git add docs/ >> "$LOG" 2>&1
+if ! git diff --cached --quiet 2>/dev/null; then
+  git commit -m "Bot: update website ($TOTAL skills, $MCP MCPs)" >> "$LOG" 2>&1
+  git push >> "$LOG" 2>&1
+fi
 
 echo "=== Done: $(date -u) ===" >> "$LOG"
 echo "" >> "$LOG"
