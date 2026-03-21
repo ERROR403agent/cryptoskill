@@ -9,7 +9,6 @@ echo "=== Bot run: $(date -u) ===" >> "$LOG"
 
 python3 scripts/auto-update.py \
   --skip-openclaw \
-  --skip-web \
   --no-ai-security \
   --update-watchlist \
   >> "$LOG" 2>&1
