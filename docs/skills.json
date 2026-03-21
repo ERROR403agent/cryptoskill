@@ -6149,6 +6149,18 @@
       ],
       "author": "nicvaniek",
       "version": "1.0.1"
+    },
+    {
+      "name": "alchemy-changeset",
+      "displayName": "Changeset",
+      "description": "Create a changeset entry to document a version bump and changelog for the current changes",
+      "category": "mcp-servers",
+      "tags": [
+        "official",
+        "mcp-servers"
+      ],
+      "author": "alchemyplatform",
+      "version": "1.0.0"
     }
   ],
   "categories": {
