@@ -127,6 +127,18 @@
       "version": "1.0.1"
     },
     {
+      "name": "virtuals-protocol-agents",
+      "displayName": "Virtuals Protocol AI Agents",
+      "description": "Launch, buy, and sell tokenized AI agents on bonding curves with veVIRTUAL staking and governance.",
+      "category": "ai-crypto",
+      "tags": [
+        "official",
+        "ai-crypto"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "bicscan-mcp",
       "displayName": "Bicscan Mcp",
       "description": "Blockchain address risk scoring and AML analysis. Evaluate wallet addresses for suspicious activity, sanctions exposure, and compliance risk.",
@@ -264,6 +276,17 @@
       "version": "1.0.0"
     },
     {
+      "name": "crypto-intel-suite",
+      "displayName": "Crypto Intelligence Suite",
+      "description": "Comprehensive analytics including TVL, yields, funding rates, token unlocks, and wallet analysis.",
+      "category": "analytics",
+      "tags": [
+        "analytics"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "crypto-liquidations-mcp",
       "displayName": "Crypto Liquidations Mcp",
       "description": "Real-time crypto liquidation events monitoring. Track leveraged position liquidations across major exchanges and DeFi protocols.",
@@ -347,6 +370,18 @@
         "cross-chain"
       ],
       "author": "jolestar",
+      "version": "1.0.0"
+    },
+    {
+      "name": "defillama-yield-recommender",
+      "displayName": "DefiLlama Yield Intelligence",
+      "description": "AI-powered yield recommendations with risk scoring, APY stability, and IL risk analysis.",
+      "category": "analytics",
+      "tags": [
+        "official",
+        "analytics"
+      ],
+      "author": "discovered",
       "version": "1.0.0"
     },
     {
@@ -884,6 +919,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "lifi-bridge",
+      "displayName": "Li.Fi Cross-Chain Bridge",
+      "description": "Bridge tokens across 15+ chains with optimal route selection and multiple bridge providers.",
+      "category": "chains",
+      "tags": [
+        "official",
+        "chains"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "lightning-commerce",
       "displayName": "Lightning Agentic Commerce",
       "description": "End-to-end agentic commerce workflow using Lightning Network. Use when an agent needs to set up a full payment stack (lnd + lnget + aperture), buy or sell data via L402, or enable agent-to-agent micropayments.",
@@ -1141,6 +1188,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "aave-lending-v3",
+      "displayName": "Aave V3 Lending",
+      "description": "Supply, borrow, and manage positions across Aave V3 markets on multiple chains.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "aave-liquidation-monitor",
       "displayName": "Aave Liquidation Monitor",
       "description": "Proactive monitoring of Aave V3 borrow positions with liquidation alerts. Queries user collateral, debt, and health factor across chains (Ethereum, Polygon, Arbitrum, etc.). Sends urgent alerts to Telegram/Discord/Slack when health factor drops below configurable thresholds (critical at 1.05, warning at 1.2). Use when you need continuous monitoring of Aave positions, want alerts before liquidation risk occurs, or need periodic summaries of your borrowing health.",
@@ -1150,6 +1209,18 @@
       ],
       "author": "jgramajo4",
       "version": "1.0.1"
+    },
+    {
+      "name": "aerodrome-ve3",
+      "displayName": "Aerodrome Finance",
+      "description": "Complete ve(3,3) DEX operations including swaps, LP, gauges, and veAERO voting on Base.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
     },
     {
       "name": "aevo-trading",
@@ -1166,6 +1237,30 @@
       "version": "1.0.0"
     },
     {
+      "name": "alienbase-odos",
+      "displayName": "AlienBase + Odos Aggregator",
+      "description": "Base DEX with Odos aggregator routing and ALB farming rewards.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "balancer-v3-pools",
+      "displayName": "Balancer V3 Liquidity",
+      "description": "Manage weighted and stable pool liquidity with single-sided deposits and gauge staking.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "bridge-rates-mcp",
       "displayName": "Bridge Rates Mcp",
       "description": "Real-time cross-chain bridge rate comparison across major bridges. Find the cheapest and fastest route to move assets between chains.",
@@ -1174,6 +1269,42 @@
         "defi"
       ],
       "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "convex-crv-boost",
+      "displayName": "Convex Finance",
+      "description": "Stake Curve LP tokens for boosted CRV + CVX rewards and extra incentives.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "cow-swap-intents",
+      "displayName": "CoW Protocol Intents",
+      "description": "Gasless intent-based swaps with MEV protection and batch auction settlement.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "curve-pools",
+      "displayName": "Curve Finance Pools",
+      "description": "Access Curve stablecoin and volatile pools with optimal swap routing.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
       "version": "1.0.0"
     },
     {
@@ -1246,6 +1377,41 @@
       "version": "2.3.5"
     },
     {
+      "name": "eigenlayer-restaking",
+      "displayName": "EigenLayer Restaking",
+      "description": "Deposit LSTs into restaking strategies, delegate to operators, and manage withdrawals.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "eth-staking-router",
+      "displayName": "ETH Liquid Staking Router",
+      "description": "Compare and stake ETH with Lido, Rocket Pool, EtherFi, or Swell with best-rate auto-selection.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "ethena-susde",
+      "displayName": "Ethena USDe/sUSDe",
+      "description": "Stake USDe for sUSDe yields, manage cooldown periods, and track conversion rates.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "gmx-official-liquidity",
       "displayName": "Gmx Official Liquidity",
       "description": "Provide liquidity on GMX V2 — deposit into GM pools and GLV vaults, withdraw, shift between pools, and query pool data across Arbitrum, Avalanche, and Botanix.",
@@ -1282,6 +1448,18 @@
       "version": "0.1.0"
     },
     {
+      "name": "jupiter-swap",
+      "displayName": "Jupiter DEX Aggregator",
+      "description": "Execute optimal token swaps on Solana with best-route aggregation across all Solana DEXs.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "lido-mcp",
       "displayName": "Lido Mcp",
       "description": "Build and use an MCP server for Lido staking operations. Covers stETH staking, wstETH wrapping, withdrawal queue, balance queries, governance, and vault monitoring. Use when building Lido MCP tools, staking integrations, or monitoring Lido positions.",
@@ -1316,6 +1494,30 @@
       ],
       "author": "bytesagain1",
       "version": "2.4.4"
+    },
+    {
+      "name": "marinade-liquid-staking",
+      "displayName": "Marinade mSOL",
+      "description": "Stake SOL for mSOL liquid staking token with automatic validator delegation.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "mellow-restaking-vaults",
+      "displayName": "Mellow LRT Vaults",
+      "description": "Deposit into curated restaking vaults with Symbiotic points and curator reputation scoring.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
     },
     {
       "name": "openpump-solana",
@@ -1380,6 +1582,30 @@
         "farming"
       ],
       "author": "btcagentic",
+      "version": "1.0.0"
+    },
+    {
+      "name": "pancakeswap-v3",
+      "displayName": "PancakeSwap V3",
+      "description": "Execute concentrated liquidity swaps on BSC with smart routing.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "pendle-yield-trading",
+      "displayName": "Pendle Yield Markets",
+      "description": "Trade Principal Tokens (PT) for fixed yields and Yield Tokens (YT) for leveraged exposure.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
       "version": "1.0.0"
     },
     {
@@ -1583,6 +1809,17 @@
       "version": "0.1.0"
     },
     {
+      "name": "swap-router-aggregator",
+      "displayName": "Multi-DEX Swap Router",
+      "description": "Aggregate quotes from Uniswap V3/V4, ParaSwap, 0x, 1inch, and OKX for best execution.",
+      "category": "defi",
+      "tags": [
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "token-revoke-mcp",
       "displayName": "Token Revoke Mcp",
       "description": "Check and revoke ERC-20 token allowances to secure wallets. Scan for risky unlimited approvals and generate revocation transactions.",
@@ -1747,6 +1984,18 @@
       ],
       "author": "openclaw-consensus-bot",
       "version": "2.0.4"
+    },
+    {
+      "name": "uniswap-v4-hooks",
+      "displayName": "Uniswap V4 Pools",
+      "description": "Query and execute swaps on Uniswap V4 pools with custom hooks architecture.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
     },
     {
       "name": "venus-official-protocol-ops",
@@ -5450,6 +5699,18 @@
       "version": "1.5.2"
     },
     {
+      "name": "kalshi-prediction",
+      "displayName": "Kalshi Event Contracts",
+      "description": "Access CFTC-regulated event contracts and prediction markets for economic and political events.",
+      "category": "prediction-markets",
+      "tags": [
+        "official",
+        "prediction-markets"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "polymarket",
       "displayName": "Polymarket",
       "description": "Query and trade on Polymarket prediction markets — check odds, trending markets, search events, view order books, place trades, and manage positions. Now available to US developers.",
@@ -5527,6 +5788,18 @@
         "probability"
       ],
       "author": "deanpress",
+      "version": "1.0.0"
+    },
+    {
+      "name": "polymarket-prediction",
+      "displayName": "Polymarket Markets",
+      "description": "Query prediction market odds, outcomes, and trading volumes for real-world events.",
+      "category": "prediction-markets",
+      "tags": [
+        "official",
+        "prediction-markets"
+      ],
+      "author": "discovered",
       "version": "1.0.0"
     },
     {
@@ -5772,6 +6045,18 @@
       ],
       "author": "bytesagain1",
       "version": "2.4.4"
+    },
+    {
+      "name": "dca-automation",
+      "displayName": "DCA & Price Alerts",
+      "description": "Create recurring DCA orders, price alerts, and conditional trade automation.",
+      "category": "trading",
+      "tags": [
+        "official",
+        "trading"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
     },
     {
       "name": "defi-yield-scanner",
@@ -6281,291 +6566,6 @@
       ],
       "author": "nicvaniek",
       "version": "1.0.1"
-    },
-    {
-      "name": "virtuals-protocol-agents",
-      "displayName": "Virtuals Protocol AI Agents",
-      "description": "Launch, buy, and sell tokenized AI agents on bonding curves with veVIRTUAL staking and governance.",
-      "category": "ai-crypto",
-      "tags": [
-        "official",
-        "ai-crypto"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "jupiter-swap",
-      "displayName": "Jupiter DEX Aggregator",
-      "description": "Execute optimal token swaps on Solana with best-route aggregation across all Solana DEXs.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "uniswap-v4-hooks",
-      "displayName": "Uniswap V4 Pools",
-      "description": "Query and execute swaps on Uniswap V4 pools with custom hooks architecture.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "aerodrome-ve3",
-      "displayName": "Aerodrome Finance",
-      "description": "Complete ve(3,3) DEX operations including swaps, LP, gauges, and veAERO voting on Base.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "pendle-yield-trading",
-      "displayName": "Pendle Yield Markets",
-      "description": "Trade Principal Tokens (PT) for fixed yields and Yield Tokens (YT) for leveraged exposure.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "eigenlayer-restaking",
-      "displayName": "EigenLayer Restaking",
-      "description": "Deposit LSTs into restaking strategies, delegate to operators, and manage withdrawals.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "ethena-susde",
-      "displayName": "Ethena USDe/sUSDe",
-      "description": "Stake USDe for sUSDe yields, manage cooldown periods, and track conversion rates.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "mellow-restaking-vaults",
-      "displayName": "Mellow LRT Vaults",
-      "description": "Deposit into curated restaking vaults with Symbiotic points and curator reputation scoring.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "cow-swap-intents",
-      "displayName": "CoW Protocol Intents",
-      "description": "Gasless intent-based swaps with MEV protection and batch auction settlement.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "balancer-v3-pools",
-      "displayName": "Balancer V3 Liquidity",
-      "description": "Manage weighted and stable pool liquidity with single-sided deposits and gauge staking.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "defillama-yield-recommender",
-      "displayName": "DefiLlama Yield Intelligence",
-      "description": "AI-powered yield recommendations with risk scoring, APY stability, and IL risk analysis.",
-      "category": "analytics",
-      "tags": [
-        "official",
-        "analytics"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "polymarket-prediction",
-      "displayName": "Polymarket Markets",
-      "description": "Query prediction market odds, outcomes, and trading volumes for real-world events.",
-      "category": "prediction-markets",
-      "tags": [
-        "official",
-        "prediction-markets"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "kalshi-prediction",
-      "displayName": "Kalshi Event Contracts",
-      "description": "Access CFTC-regulated event contracts and prediction markets for economic and political events.",
-      "category": "prediction-markets",
-      "tags": [
-        "official",
-        "prediction-markets"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "marinade-liquid-staking",
-      "displayName": "Marinade mSOL",
-      "description": "Stake SOL for mSOL liquid staking token with automatic validator delegation.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "alienbase-odos",
-      "displayName": "AlienBase + Odos Aggregator",
-      "description": "Base DEX with Odos aggregator routing and ALB farming rewards.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "convex-crv-boost",
-      "displayName": "Convex Finance",
-      "description": "Stake Curve LP tokens for boosted CRV + CVX rewards and extra incentives.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "lifi-bridge",
-      "displayName": "Li.Fi Cross-Chain Bridge",
-      "description": "Bridge tokens across 15+ chains with optimal route selection and multiple bridge providers.",
-      "category": "chains",
-      "tags": [
-        "official",
-        "chains"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "aave-lending-v3",
-      "displayName": "Aave V3 Lending",
-      "description": "Supply, borrow, and manage positions across Aave V3 markets on multiple chains.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "dca-automation",
-      "displayName": "DCA & Price Alerts",
-      "description": "Create recurring DCA orders, price alerts, and conditional trade automation.",
-      "category": "trading",
-      "tags": [
-        "official",
-        "trading"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "curve-pools",
-      "displayName": "Curve Finance Pools",
-      "description": "Access Curve stablecoin and volatile pools with optimal swap routing.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "pancakeswap-v3",
-      "displayName": "PancakeSwap V3",
-      "description": "Execute concentrated liquidity swaps on BSC with smart routing.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "swap-router-aggregator",
-      "displayName": "Multi-DEX Swap Router",
-      "description": "Aggregate quotes from Uniswap V3/V4, ParaSwap, 0x, 1inch, and OKX for best execution.",
-      "category": "defi",
-      "tags": [
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "crypto-intel-suite",
-      "displayName": "Crypto Intelligence Suite",
-      "description": "Comprehensive analytics including TVL, yields, funding rates, token unlocks, and wallet analysis.",
-      "category": "analytics",
-      "tags": [
-        "analytics"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "eth-staking-router",
-      "displayName": "ETH Liquid Staking Router",
-      "description": "Compare and stake ETH with Lido, Rocket Pool, EtherFi, or Swell with best-rate auto-selection.",
-      "category": "defi",
-      "tags": [
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
     }
   ],
   "categories": {
