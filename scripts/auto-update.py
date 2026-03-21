@@ -208,12 +208,16 @@ def altllm_chat(prompt: str, system: str = "", max_tokens: int = 2000) -> str:
             headers={
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {api_key}",
+                "User-Agent": "CryptoSkill-Bot/1.0",
+                "Accept": "application/json",
             },
+            method="POST",
         )
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
-                return data["choices"][0]["message"]["content"]
+                msg = data["choices"][0]["message"]
+            return msg.get("content") or msg.get("reasoning_content") or ""
         except (urllib.error.URLError, urllib.error.HTTPError, KeyError, IndexError) as e:
             log.warning("AltLLM API call to %s failed: %s", base, e)
             continue
