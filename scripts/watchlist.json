@@ -267,7 +267,8 @@
       "coingecko": "binancecoin",
       "skills_repo": "bnb-chain/bnbchain-skills",
       "status": "added",
-      "last_checked": "2026-03-22"
+      "last_checked": "2026-03-22",
+      "registry": "bnb-chain/skills-hub"
     },
     {
       "name": "Avalanche",

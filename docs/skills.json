@@ -6472,6 +6472,17 @@
       "version": "0.1.0"
     },
     {
+      "name": "fortune-skill",
+      "displayName": "Fortune Skill",
+      "description": "Community skill from BNB Chain Skills Hub",
+      "category": "prediction-markets",
+      "tags": [
+        "prediction-markets"
+      ],
+      "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
       "name": "graph-polymarket-mcp",
       "displayName": "Graph Polymarket MCP",
       "description": "Query Polymarket prediction market data via The Graph — 20 tools for market stats, trader P&L, positions, orderbook trades, open interest, resolution status, and trader profiles.",
@@ -6507,6 +6518,17 @@
         "prediction-markets"
       ],
       "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "myriad-cli",
+      "displayName": "Myriad Cli",
+      "description": "Community skill from BNB Chain Skills Hub",
+      "category": "prediction-markets",
+      "tags": [
+        "prediction-markets"
+      ],
+      "author": "unknown",
       "version": "1.0.0"
     },
     {
