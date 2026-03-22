@@ -64,7 +64,7 @@ CryptoSkill maintains **56 MCP (Model Context Protocol) servers** for crypto -- 
 | [Base](skills/mcp-servers/base-mcp/) | Coinbase | `git clone base/base-mcp` |
 | [Blockscout](skills/mcp-servers/blockscout-mcp/) | Blockscout | `claude mcp add blockscout https://mcp.blockscout.com/mcp` |
 | [BNB Chain](skills/mcp-servers/bnbchain-mcp/) | BNB Chain | `git clone bnb-chain/bnbchain-mcp` |
-| [BNB Chain Skills Hub](https://github.com/bnb-chain/skills-hub) | Registry | BNB Chain community skill registry with AgentGuard security scanning |
+| [BNB Chain Skills Hub](https://github.com/bnb-chain/skills-582hub) | Registry | BNB Chain community skill registry with AgentGuard security scanning |
 | [Coinbase AgentKit](skills/mcp-servers/coinbase-agentkit/) | Coinbase | `npm create onchain-agent@latest` |
 | [CoinGecko](skills/mcp-servers/coingecko-mcp-official/) | CoinGecko | `npx @coingecko/coingecko-mcp` |
 | [DefiLlama](skills/mcp-servers/defillama-mcp/) | dcSpark | `git clone dcSpark/mcp-server-defillama` |
@@ -266,7 +266,7 @@ We gratefully acknowledge the following projects and teams whose skills and tool
 | [Blockscout](https://github.com/blockscout/mcp-server) | 1 MCP server | Multi-chain block explorer |
 | [CoinGecko](https://github.com/coingecko/coingecko-typescript) | 1 MCP server | Market data + token info |
 | [BNB Chain](https://github.com/bnb-chain/bnbchain-mcp) | 1 MCP server | BSC + opBNB + Greenfield |
-| [BNB Chain Skills Hub](https://github.com/bnb-chain/skills-hub) | Registry | BNB Chain community skill registry with AgentGuard security scanning |
+| [BNB Chain Skills Hub](https://github.com/bnb-chain/skills-582hub) | Registry | BNB Chain community skill registry with AgentGuard security scanning |
 | [Monad](https://github.com/monad-developers/monad-mcp) | 1 MCP server | Monad blockchain tools |
 | [NEAR](https://github.com/nearai/near-mcp) | 1 MCP server | NEAR protocol integration |
 | [Aptos](https://github.com/aptos-labs/aptos-npm-mcp) | 1 MCP server | Aptos blockchain tools |
