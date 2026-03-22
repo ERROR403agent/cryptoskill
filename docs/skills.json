@@ -421,6 +421,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "defillama-yield-scanner",
+      "displayName": "DefiLlama Yield Comparison",
+      "description": "Compare and recommend risk-adjusted yield opportunities across all DeFi protocols with ML-based scoring.",
+      "category": "analytics",
+      "tags": [
+        "official",
+        "analytics"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "defillama-yields-api",
       "displayName": "DefiLlama Yields OpenAPI Skill",
       "description": "Operate DefiLlama public yield APIs through UXC with a curated OpenAPI schema and read-first guardrails.",
@@ -979,6 +991,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "lifi-bridge-router",
+      "displayName": "Li.Fi Cross-Chain Bridge",
+      "description": "Execute cross-chain token transfers with optimal route selection across 20+ bridges and 30+ chains.",
+      "category": "chains",
+      "tags": [
+        "official",
+        "chains"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "lightning-commerce",
       "displayName": "Lightning Agentic Commerce",
       "description": "End-to-end agentic commerce workflow using Lightning Network. Use when an agent needs to set up a full payment stack (lnd + lnget + aperture), buy or sell data via L402, or enable agent-to-agent micropayments.",
@@ -1271,6 +1295,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "aerodrome-base-dex",
+      "displayName": "Aerodrome Finance",
+      "description": "Full DEX operations on Base including swaps, LP positions, veAERO voting, gauge staking, and bribe claiming.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "aerodrome-ve3",
       "displayName": "Aerodrome Finance",
       "description": "Complete ve(3,3) DEX operations including swaps, LP, gauges, and veAERO voting on Base.",
@@ -1300,6 +1336,18 @@
       "name": "alienbase-agent",
       "displayName": "AlienBase DEX Agent",
       "description": "Swap via Odos aggregator and farm ALB rewards on AlienBase DEX on Base network.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "alienbase-base-yields",
+      "displayName": "AlienBase Farms",
+      "description": "Stake LP tokens and farm ALB rewards on Base with Odos aggregator-powered swaps for optimal routing.",
       "category": "defi",
       "tags": [
         "official",
@@ -1416,6 +1464,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "curve-stable-swap",
+      "displayName": "Curve Finance Pools",
+      "description": "Access Curve's optimized stablecoin and pegged-asset pools with minimal slippage swaps and LP positions.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "defi-lending",
       "displayName": "Defi Lending",
       "description": "Check DeFi lending and borrowing rates, supply/borrow APY, positions, health factors, and protocol comparisons. Use when asked about lending rates, borrowing costs, Aave rates, Compound APY, Morpho markets, lending protocol comparison, health factor, or liquidation risk.",
@@ -1509,6 +1569,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "eth-liquid-staking",
+      "displayName": "ETH Liquid Staking Router",
+      "description": "Stake ETH with Lido, Rocket Pool, EtherFi, or Swell with automatic best-rate selection across providers.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "eth-staking-router",
       "displayName": "ETH Liquid Staking Router",
       "description": "Compare and stake ETH with Lido, Rocket Pool, EtherFi, or Swell with best-rate auto-selection.",
@@ -1592,9 +1664,33 @@
       "version": "0.1.0"
     },
     {
+      "name": "jupiter-solana-swap",
+      "displayName": "Jupiter DEX Aggregator",
+      "description": "Execute optimal token swaps on Solana through Jupiter's aggregator with best-route selection across all Solana DEXs.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "jupiter-swap",
       "displayName": "Jupiter DEX Aggregator",
       "description": "Execute optimal token swaps on Solana with best-route aggregation across all Solana DEXs.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "lending-positions-manager",
+      "displayName": "Aave/Compound Lending",
+      "description": "Supply, borrow, and manage lending positions across Aave, Compound, Morpho, and Spark protocols.",
       "category": "defi",
       "tags": [
         "official",
@@ -2202,6 +2298,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "uniswap-v4-pools",
+      "displayName": "Uniswap V4 Hooks & Pools",
+      "description": "Query and execute swaps on Uniswap V4 pools with hook-enabled custom logic and advanced pool configurations.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "venus-official-protocol-ops",
       "displayName": "Venus Official Protocol Ops",
       "description": "Analyze Venus Protocol lending/borrowing positions on BNB Chain with risk-first guidance. Use when users ask about Venus markets, collateral/borrow decisions, health factor, liquidation risk, APY/utilization comparison, isolated pools, or \"can I borrow X safely\" style what-if checks.",
@@ -2210,6 +2318,18 @@
         "defi"
       ],
       "author": "unknown",
+      "version": "1.0.0"
+    },
+    {
+      "name": "yield-strategy-router",
+      "displayName": "Yield Strategy Router",
+      "description": "Access Pendle, Convex, EigenLayer, Ethena, and Marinade yield strategies with unified interface.",
+      "category": "defi",
+      "tags": [
+        "official",
+        "defi"
+      ],
+      "author": "discovered",
       "version": "1.0.0"
     },
     {
@@ -6553,6 +6673,18 @@
       "version": "1.0.0"
     },
     {
+      "name": "prediction-markets-router",
+      "displayName": "Prediction Markets API",
+      "description": "Query Polymarket and Kalshi prediction markets for event outcomes and market probabilities.",
+      "category": "prediction-markets",
+      "tags": [
+        "official",
+        "prediction-markets"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
       "name": "dagny-nostr",
       "displayName": "Dagny Nostr (nak)",
       "description": "Manage Nostr posting and engagement via the nak CLI. Use for creating notes, replying in threads, tagging npubs, checking replies/mentions, monitoring a relay (default wss://relay.primal.net), and publishing events with correct root/reply tags. Requires access to NOSTR_SECRET_KEY (nsec) for signing/publishing.",
@@ -6729,6 +6861,18 @@
       "name": "dca-automation",
       "displayName": "DCA & Price Alerts",
       "description": "Create recurring DCA orders, price alerts, and conditional trade automation.",
+      "category": "trading",
+      "tags": [
+        "official",
+        "trading"
+      ],
+      "author": "discovered",
+      "version": "1.0.0"
+    },
+    {
+      "name": "dca-automation-engine",
+      "displayName": "DCA & Alerts Automation",
+      "description": "Create automated DCA orders, price alerts, and conditional trades with scheduling and workflow support.",
       "category": "trading",
       "tags": [
         "official",
@@ -7267,150 +7411,6 @@
       ],
       "author": "nicvaniek",
       "version": "1.0.1"
-    },
-    {
-      "name": "jupiter-solana-swap",
-      "displayName": "Jupiter DEX Aggregator",
-      "description": "Execute optimal token swaps on Solana through Jupiter's aggregator with best-route selection across all Solana DEXs.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "uniswap-v4-pools",
-      "displayName": "Uniswap V4 Hooks & Pools",
-      "description": "Query and execute swaps on Uniswap V4 pools with hook-enabled custom logic and advanced pool configurations.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "aerodrome-base-dex",
-      "displayName": "Aerodrome Finance",
-      "description": "Full DEX operations on Base including swaps, LP positions, veAERO voting, gauge staking, and bribe claiming.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "defillama-yield-scanner",
-      "displayName": "DefiLlama Yield Comparison",
-      "description": "Compare and recommend risk-adjusted yield opportunities across all DeFi protocols with ML-based scoring.",
-      "category": "analytics",
-      "tags": [
-        "official",
-        "analytics"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "curve-stable-swap",
-      "displayName": "Curve Finance Pools",
-      "description": "Access Curve's optimized stablecoin and pegged-asset pools with minimal slippage swaps and LP positions.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "alienbase-base-yields",
-      "displayName": "AlienBase Farms",
-      "description": "Stake LP tokens and farm ALB rewards on Base with Odos aggregator-powered swaps for optimal routing.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "prediction-markets-router",
-      "displayName": "Prediction Markets API",
-      "description": "Query Polymarket and Kalshi prediction markets for event outcomes and market probabilities.",
-      "category": "prediction-markets",
-      "tags": [
-        "official",
-        "prediction-markets"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "lifi-bridge-router",
-      "displayName": "Li.Fi Cross-Chain Bridge",
-      "description": "Execute cross-chain token transfers with optimal route selection across 20+ bridges and 30+ chains.",
-      "category": "chains",
-      "tags": [
-        "official",
-        "chains"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "eth-liquid-staking",
-      "displayName": "ETH Liquid Staking Router",
-      "description": "Stake ETH with Lido, Rocket Pool, EtherFi, or Swell with automatic best-rate selection across providers.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "lending-positions-manager",
-      "displayName": "Aave/Compound Lending",
-      "description": "Supply, borrow, and manage lending positions across Aave, Compound, Morpho, and Spark protocols.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "yield-strategy-router",
-      "displayName": "Yield Strategy Router",
-      "description": "Access Pendle, Convex, EigenLayer, Ethena, and Marinade yield strategies with unified interface.",
-      "category": "defi",
-      "tags": [
-        "official",
-        "defi"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
-    },
-    {
-      "name": "dca-automation-engine",
-      "displayName": "DCA & Alerts Automation",
-      "description": "Create automated DCA orders, price alerts, and conditional trades with scheduling and workflow support.",
-      "category": "trading",
-      "tags": [
-        "official",
-        "trading"
-      ],
-      "author": "discovered",
-      "version": "1.0.0"
     }
   ],
   "categories": {
