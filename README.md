@@ -6,9 +6,9 @@
 
 Before the App Store, iPhone developers distributed apps through ad hoc channels. Before npm, JavaScript developers emailed zip files. Every platform ecosystem goes through the same phase transition: fragmented distribution, then a registry, then an explosion of building. Crypto AI agents are at the registry moment.
 
-[![Skills](https://img.shields.io/badge/skills-550-6366f1)]() [![MCP Servers](https://img.shields.io/badge/MCP%20servers-56-f59e0b)]() [![Official](https://img.shields.io/badge/official-299-22c55e)]() [![Categories](https://img.shields.io/badge/categories-13-22d3ee)]() [![License](https://img.shields.io/badge/license-AGPL--3.0-green)]()
+[![Skills](https://img.shields.io/badge/skills-568-6366f1)]() [![MCP Servers](https://img.shields.io/badge/MCP%20servers-56-f59e0b)]() [![Official](https://img.shields.io/badge/official-317-22c55e)]() [![Categories](https://img.shields.io/badge/categories-13-22d3ee)]() [![License](https://img.shields.io/badge/license-AGPL--3.0-green)]()
 
-[Website](https://cryptoskill.org) · [Browse Skills](#skills-550overview) · [MCP Servers](#mcp-servers) · [Submit a Skill](#submit-a-skill) · [Contributing](CONTRIBUTING.md)
+[Website](https://cryptoskill.org) · [Browse Skills](#skills-568overview) · [MCP Servers](#mcp-servers) · [Submit a Skill](#submit-a-skill) · [Contributing](CONTRIBUTING.md)
 
 </div>
 
@@ -119,7 +119,7 @@ cp -r /tmp/cs/skills/dev-tools/cryptoskill .claude/skills/
 ```bash
 # Copy a skill into your project's Claude Code skills
 cp -r /tmp/cs/skills/exchanges/binance-spot-api .claude/skills/
-cp -r /tmp/cs/skills/defi/uniswap-official-299swap-integration .claude/skills/
+cp -r /tmp/cs/skills/defi/uniswap-official-317swap-integration .claude/skills/
 ```
 
 ### Install an MCP Server
@@ -150,14 +150,14 @@ clawhub install binance-spot-api
 | Project | Skills | Source |
 |---|---|---|
 | [Kraken](https://www.kraken.com/) | 50 | [krakenfx/kraken-cli](https://github.com/krakenfx/kraken-cli) |
-| [Binance](https://www.binance.com/) | 20+ | [binance/binance-skills-550hub](https://github.com/binance/binance-skills-hub) |
+| [Binance](https://www.binance.com/) | 20+ | [binance/binance-skills-568hub](https://github.com/binance/binance-skills-hub) |
 | [OKX](https://www.okx.com/) | 16+ | [okx/onchainos-skills](https://github.com/okx/onchainos-skills) |
 | [Gate.io](https://www.gate.io/) | 13 | ClawHub: gate-exchange |
 | [Nansen](https://www.nansen.ai/) | 10 | ClawHub: nansen-devops |
 | [Uniswap](https://uniswap.org/) | 8 | [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) |
 | [CoinMarketCap](https://coinmarketcap.com/) | 7 | ClawHub: bryan-cmc |
 | [Bitget](https://www.bitget.com/) | 7 | [BitgetLimited/agent_hub](https://github.com/BitgetLimited/agent_hub) |
-| [KuCoin](https://www.kucoin.com/) | 7 | [Kucoin/kucoin-skills-550hub](https://github.com/Kucoin/kucoin-skills-hub) |
+| [KuCoin](https://www.kucoin.com/) | 7 | [Kucoin/kucoin-skills-568hub](https://github.com/Kucoin/kucoin-skills-hub) |
 | [Rocket Pool](https://rocketpool.net/) | 7 | [rocket-pool/skills](https://github.com/rocket-pool/skills) |
 | [Ottie](https://github.com/jiayaoqijia/ottie) | 18 | Crypto DeFi, wallets, market data, mpp, tempo |
 | [Lightning Labs](https://lightning.engineering/) | 3 | ClawHub: roasbeef (CTO) |
@@ -232,10 +232,10 @@ We gratefully acknowledge the following projects and teams whose skills and tool
 |---|---|---|
 | [ClawHub](https://clawhub.ai) | 200+ community skills | Skill registry for OpenClaw agents |
 | [Ottie](https://github.com/jiayaoqijia/ottie) | 18 crypto/DeFi skills | Self-evolving crypto AI agent |
-| [Binance Skills Hub](https://github.com/binance/binance-skills-550hub) | 20+ exchange skills | Official Binance AI skills |
+| [Binance Skills Hub](https://github.com/binance/binance-skills-568hub) | 20+ exchange skills | Official Binance AI skills |
 | [OKX OnchainOS](https://github.com/okx/onchainos-skills) | 16+ exchange skills | Official OKX AI skills |
 | [Kraken CLI](https://github.com/krakenfx/kraken-cli) | 50 trading skills | Official Kraken AI-native CLI |
-| [KuCoin Skills Hub](https://github.com/Kucoin/kucoin-skills-550hub) | 7 exchange skills | Official KuCoin AI skills |
+| [KuCoin Skills Hub](https://github.com/Kucoin/kucoin-skills-568hub) | 7 exchange skills | Official KuCoin AI skills |
 | [Uniswap AI](https://github.com/Uniswap/uniswap-ai) | 8 DeFi skills | Official Uniswap agent tools |
 | [Rocket Pool Skills](https://github.com/rocket-pool/skills) | 7 staking skills | Official Rocket Pool agent skills |
 | [GMX AI](https://github.com/gmx-io/gmx-ai) | 2 DeFi skills | Official GMX trading + liquidity |
